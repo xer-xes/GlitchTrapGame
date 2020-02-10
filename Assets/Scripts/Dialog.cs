@@ -7,6 +7,7 @@ using DG.Tweening;
 
 public class Dialog : MonoBehaviour
 {
+    [Header("GamePlay Buttons")]
     public Button playButton;
     public Button onlineButton;
     public Button exitButton;
@@ -17,6 +18,9 @@ public class Dialog : MonoBehaviour
     public string[] playSentences;
     public string[] onlineSentences;
     public string[] exitSentences;
+    public string[] gamePlaySentences;
+
+    bool gamePlayText;
 
     public float typingSpeed;
     public float sentenceDelay;
@@ -29,16 +33,19 @@ public class Dialog : MonoBehaviour
     Vector3 cameraOriginalPosition;
     public bool cameraShake;
 
+    //----------------------
     private void OnEnable()
     {
         cameraOriginalPosition = camera.transform.localPosition;
     }
 
+    //-------------------
     private void Start()
     {
         StartCoroutine(OnPlayType(startSentence));
     }
 
+    //-------------------
     private void Update()
     {
         if(cameraShake)
@@ -69,6 +76,7 @@ public class Dialog : MonoBehaviour
         cameraShake = true;
         StartCoroutine(OnPlayType(exitSentences));
         exitButton.gameObject.SetActive(false);
+        gamePlayText = true;
     }
 
     //-----------------------------------------
@@ -83,14 +91,25 @@ public class Dialog : MonoBehaviour
                 dialogueText.text += letter;
                 yield return new WaitForSeconds(typingSpeed);
             }
+
             yield return new WaitForSeconds(sentenceDelay);
+
             if (i < sentences.Length - 1)
             {
                 dialogueText.text = "";
             }
+
+            if(i == sentences.Length - 1 && gamePlayText)
+            {
+                gamePlayText = false;
+                yield return new WaitForSeconds(5);
+                StartCoroutine(OnPlayType(gamePlaySentences));
+            }
+
         }
     }
 
+    //-----------------
     void CameraShake()
     {
         if (shakeDuration > 0)
