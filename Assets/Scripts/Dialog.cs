@@ -33,6 +33,8 @@ public class Dialog : MonoBehaviour
     Vector3 cameraOriginalPosition;
     public bool cameraShake;
 
+    private int buttonCount = 0;
+
     //----------------------
     private void OnEnable()
     {
@@ -51,15 +53,23 @@ public class Dialog : MonoBehaviour
     //-------------------
     private void Update()
     {
-        if(cameraShake)
+        if (cameraShake)
         {
             CameraShake();
+        }
+        if (buttonCount == 3)
+        {
+            buttonCount++;
+            gamePlayText = true;
         }
     }
 
     //------------------------------
     public void OnClickPlayButton()
     {
+        buttonCount++;
+        //onlineButton.interactable = false;
+        //exitButton.interactable = false;
         cameraShake = true;
         StartCoroutine(OnPlayType(playSentences,onlineButton));
         playButton.gameObject.SetActive(false);
@@ -68,18 +78,24 @@ public class Dialog : MonoBehaviour
     //--------------------------------
     public void OnClickOnlineButton()
     {
+        buttonCount++;
+        //playButton.interactable = false;
+        //exitButton.interactable = false;
         cameraShake = true;
-        StartCoroutine(OnPlayType(onlineSentences,exitButton));
+        StartCoroutine(OnPlayType(onlineSentences, exitButton));
         onlineButton.gameObject.SetActive(false);
     }
 
     //------------------------------
     public void OnClickExitButton()
     {
+        buttonCount++;
+        //playButton.interactable = false;
+        //onlineButton.interactable = false;
         cameraShake = true;
         StartCoroutine(OnPlayType(exitSentences));
         exitButton.gameObject.SetActive(false);
-        gamePlayText = true;
+        //gamePlayText = true;
     }
 
     //-----------------------------------------
@@ -100,10 +116,6 @@ public class Dialog : MonoBehaviour
             if (i < sentences.Length - 1)
             {
                 dialogueText.text = "";
-                if (menuButton != null)
-                {
-                    menuButton.interactable = true;
-                }
             }
 
             if (i == sentences.Length - 1 && gamePlayText)
@@ -114,7 +126,17 @@ public class Dialog : MonoBehaviour
                 GameManager.Instance.glitchFadedWallpaper.FadeOut();
                 dialogueText.text = "";
             }
+         
         }
+        if (menuButton != null)
+        {
+            menuButton.interactable = true;
+        }
+    }
+
+    void DialogueDoneCallback()
+    {
+
     }
 
     //-----------------
