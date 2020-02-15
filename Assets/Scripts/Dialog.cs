@@ -99,13 +99,14 @@ public class Dialog : MonoBehaviour
                 dialogueText.text = "";
             }
 
-            if(i == sentences.Length - 1 && gamePlayText)
+            if (i == sentences.Length - 1 && gamePlayText)
             {
                 gamePlayText = false;
-                yield return new WaitForSeconds(5);
-                StartCoroutine(OnPlayType(gamePlaySentences));
+                yield return new WaitForSeconds(3);
+                yield return StartCoroutine(OnPlayType(gamePlaySentences));
+                GameManager.Instance.glitchFadedWallpaper.FadeOut();
+                dialogueText.text = "";
             }
-
         }
     }
 
