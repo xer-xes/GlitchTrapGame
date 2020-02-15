@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
 
     public Fade glitchFadedWallpaper;
     public GameObject playButtonsCanvas;
+    public GameObject LSD;
+    public GameObject Tongue;
 
     private void Awake()
     {
@@ -31,6 +33,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        
+        if(glitchFadedWallpaper.isFade == true)
+        {
+            playButtonsCanvas.gameObject.SetActive(false);
+            LSD.gameObject.SetActive(true);
+            Tongue.gameObject.SetActive(true);
+        }
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Fade : MonoBehaviour
 {
     public Image glitchFade;
+    public bool isFade = false;
 
     void Start()
     {
@@ -15,6 +16,6 @@ public class Fade : MonoBehaviour
     public void FadeOut()
     {
         glitchFade.CrossFadeAlpha(0.0f, 3, false);
-        GameManager.Instance.playButtonsCanvas.SetActive(false);
+        isFade = true;
     }
 }
