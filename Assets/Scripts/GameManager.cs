@@ -19,6 +19,10 @@ public class GameManager : MonoBehaviour
     public GameObject LSD;
     public GameObject Tongue;
 
+    public GameObject backGround;
+
+    bool lsdOnTongue = false;
+
     private void Awake()
     {
         if(instance != null && instance != this)
@@ -39,5 +43,13 @@ public class GameManager : MonoBehaviour
             LSD.gameObject.SetActive(true);
             Tongue.gameObject.SetActive(true);
         }
+    }
+
+    public void FadeToBlack()
+    {
+        float colorR = backGround.GetComponent<SpriteRenderer>().color.r;
+        float colorG = backGround.GetComponent<SpriteRenderer>().color.g;
+        float colorB = backGround.GetComponent<SpriteRenderer>().color.b;
+        backGround.GetComponent<SpriteRenderer>().color = new Color(colorR, colorG, colorB,0);
     }
 }
