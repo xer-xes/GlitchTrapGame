@@ -37,12 +37,15 @@ public class Dialog : MonoBehaviour
     private void OnEnable()
     {
         cameraOriginalPosition = camera.transform.localPosition;
+        playButton.interactable = false;
+        onlineButton.interactable = false;
+        exitButton.interactable = false;
     }
 
     //-------------------
     private void Start()
     {
-        StartCoroutine(OnPlayType(startSentence));
+        StartCoroutine(OnPlayType(startSentence,playButton));
     }
 
     //-------------------
@@ -58,7 +61,7 @@ public class Dialog : MonoBehaviour
     public void OnClickPlayButton()
     {
         cameraShake = true;
-        StartCoroutine(OnPlayType(playSentences));
+        StartCoroutine(OnPlayType(playSentences,onlineButton));
         playButton.gameObject.SetActive(false);
     }
 
@@ -66,7 +69,7 @@ public class Dialog : MonoBehaviour
     public void OnClickOnlineButton()
     {
         cameraShake = true;
-        StartCoroutine(OnPlayType(onlineSentences));
+        StartCoroutine(OnPlayType(onlineSentences,exitButton));
         onlineButton.gameObject.SetActive(false);
     }
 
@@ -80,7 +83,7 @@ public class Dialog : MonoBehaviour
     }
 
     //-----------------------------------------
-    IEnumerator OnPlayType(string[] sentences)
+    IEnumerator OnPlayType(string[] sentences, Button menuButton = null)
     {
         dialogueText.text = "";
 
@@ -97,6 +100,10 @@ public class Dialog : MonoBehaviour
             if (i < sentences.Length - 1)
             {
                 dialogueText.text = "";
+                if (menuButton != null)
+                {
+                    menuButton.interactable = true;
+                }
             }
 
             if (i == sentences.Length - 1 && gamePlayText)

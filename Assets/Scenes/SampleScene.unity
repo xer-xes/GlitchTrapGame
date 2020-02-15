@@ -499,6 +499,43 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 60531051}
   m_CullTransparentMesh: 0
+--- !u!21 &83976476
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 2DxFX/AL/Distortion
+  m_Shader: {fileID: 4800000, guid: 92942480ef5343a41a4b890389603904, type: 3}
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Alpha: 0
+    - _BlendOp: 0
+    - _DistanceX: 0.03
+    - _DistanceY: 0.03
+    - _DstBlend: 10
+    - _OffsetX: 10
+    - _OffsetY: 10
+    - _SrcBlend: 1
+    - _WaveTimeX: 4.94255
+    - _WaveTimeY: 5.405801
+    - _Z: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &277088471
 GameObject:
   m_ObjectHideFlags: 0
@@ -1116,7 +1153,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 934f040ce0bcdd945be7ad0639304273, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1f4879b53c0a7cb448980af8da17c9e1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1244,43 +1281,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!21 &718756536
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 2DxFX/AL/Distortion
-  m_Shader: {fileID: 4800000, guid: 92942480ef5343a41a4b890389603904, type: 3}
-  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _Alpha: 0
-    - _BlendOp: 0
-    - _DistanceX: 0.03
-    - _DistanceY: 0.03
-    - _DstBlend: 10
-    - _OffsetX: 10
-    - _OffsetY: 10
-    - _SrcBlend: 1
-    - _WaveTimeX: 5.4499173
-    - _WaveTimeY: 5.4499173
-    - _Z: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &774852221
 GameObject:
   m_ObjectHideFlags: 0
@@ -1609,12 +1609,12 @@ MonoBehaviour:
   _OffsetY: 10
   _DistanceX: 0.03
   _DistanceY: 0.03
-  _WaveTimeX: 5.952726
-  _WaveTimeY: 5.952726
+  _WaveTimeX: 4.9873424
+  _WaveTimeY: 5.450593
   AutoPlayWaveX: 1
-  AutoPlaySpeedX: 5
+  AutoPlaySpeedX: 1
   AutoPlayWaveY: 1
-  AutoPlaySpeedY: 5
+  AutoPlaySpeedY: 1
   AutoRandom: 1
   AutoRandomRange: 10
   ShaderChange: 0
@@ -1636,7 +1636,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 718756536}
+  - {fileID: 83976476}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1657,7 +1657,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 1f4879b53c0a7cb448980af8da17c9e1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 934f040ce0bcdd945be7ad0639304273, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
