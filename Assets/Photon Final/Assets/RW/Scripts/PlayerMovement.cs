@@ -13,8 +13,9 @@ public class PlayerMovement : MonoBehaviour
         if (GetComponent<PhotonView>().IsMine)
         {
             float horizontal = Input.GetAxisRaw("Horizontal");
-            Debug.Log("horizontal : " + horizontal);
+            Debug.Log("horizontal : " + (int)horizontal);
             transform.position += new Vector3(horizontal, 0, 0) * Time.deltaTime * movementSpeed;
+            GetComponentInChildren<Animator>().SetInteger("Speed", (int)horizontal); 
         }
     }
 }
