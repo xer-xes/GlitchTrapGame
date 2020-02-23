@@ -1,14 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="EventSystemSpawner.cs" company="Exit Games GmbH">
-// </copyright>
-// <summary>
-// For additive Scene Loading context, eventSystem can't be added to each scene and instead should be instanciated only if necessary.
-// https://answers.unity.com/questions/1403002/multiple-eventsystem-in-scene-this-is-not-supporte.html
-// </summary>
-// <author>developer@exitgames.com</author>
-// --------------------------------------------------------------------------------------------------------------------
-
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Photon.Pun.UtilityScripts

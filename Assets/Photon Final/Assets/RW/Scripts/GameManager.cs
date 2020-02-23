@@ -8,20 +8,14 @@ namespace Photon.Pun.Demo.PunBasics
     public class GameManager : MonoBehaviourPunCallbacks
     {
         public GameObject winnerUI;
-
         public GameObject player1SpawnPosition;
         public GameObject player2SpawnPosition;
-
-        public GameObject ballSpawnTransform;
-
-        private GameObject ball;
         private GameObject player1;
         private GameObject player2;
 
-        // Start Method
         void Start()
         {
-            if (!PhotonNetwork.IsConnected) // 1
+            if (!PhotonNetwork.IsConnected) 
             {
                 SceneManager.LoadScene("Launcher");
                 return;
@@ -29,26 +23,21 @@ namespace Photon.Pun.Demo.PunBasics
 
             if (PlayerManager.LocalPlayerInstance == null)
             {
-                if (PhotonNetwork.IsMasterClient) // 2
+                if (PhotonNetwork.IsMasterClient)
                 {
                     Debug.Log("Instantiating Player 1");
-                    // 3
-                    player1 = PhotonNetwork.Instantiate("Car", player1SpawnPosition.transform.position, player1SpawnPosition.transform.rotation, 0);
-                    // 4
-                    ball = PhotonNetwork.Instantiate("Ball", ballSpawnTransform.transform.position, ballSpawnTransform.transform.rotation, 0);
-                    ball.name = "Ball";
+                    player1 = PhotonNetwork.Instantiate("Player1", player1SpawnPosition.transform.position, player1SpawnPosition.transform.rotation, 0);          
                 }
-                else // 5
+                else 
                 {
-                    player2 = PhotonNetwork.Instantiate("Car", player2SpawnPosition.transform.position, player2SpawnPosition.transform.rotation, 0);
+                    player2 = PhotonNetwork.Instantiate("Player2", player2SpawnPosition.transform.position, player2SpawnPosition.transform.rotation, 0);
                 }
             }
         }
 
-        // Update Method
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape)) //1
+            if (Input.GetKeyDown(KeyCode.Escape)) 
             {
                 Application.Quit();
             }

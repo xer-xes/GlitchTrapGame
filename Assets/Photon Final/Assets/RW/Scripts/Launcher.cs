@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-
 using Photon.Pun;
 using Photon.Realtime;
 
@@ -38,25 +37,17 @@ namespace Photon.Pun.Demo.PunBasics
         string playerName = "";
         string roomName = "";
 
-        // Start Method
         void Start()
         {
-            //1
             PlayerPrefs.DeleteAll();
-
             Debug.Log("Connecting to Photon Network");
-
-            //2
             roomJoinUI.SetActive(false);
             buttonLoadArena.SetActive(false);
-
-            //3
             ConnectToPhoton();
         }
 
         void Awake()
         {
-            //4 
             PhotonNetwork.AutomaticallySyncScene = true;
         }
 
@@ -70,30 +61,28 @@ namespace Photon.Pun.Demo.PunBasics
         {
             roomName = name;
         }
-        
-        // Tutorial Methods
+
         void ConnectToPhoton()
         {
             connectionStatus.text = "Connecting...";
-            PhotonNetwork.GameVersion = gameVersion; //1
-            PhotonNetwork.ConnectUsingSettings(); //2
+            PhotonNetwork.GameVersion = gameVersion; 
+            PhotonNetwork.ConnectUsingSettings(); 
         }
 
         public void JoinRoom()
         {
             if (PhotonNetwork.IsConnected)
             {
-                PhotonNetwork.LocalPlayer.NickName = playerName; //1
+                PhotonNetwork.LocalPlayer.NickName = playerName; 
                 Debug.Log("PhotonNetwork.IsConnected! | Trying to Create/Join Room " + roomNameField.text);
-                RoomOptions roomOptions = new RoomOptions(); //2
-                TypedLobby typedLobby = new TypedLobby(roomName, LobbyType.Default); //3
-                PhotonNetwork.JoinOrCreateRoom(roomName, roomOptions, typedLobby); //4
+                RoomOptions roomOptions = new RoomOptions(); 
+                TypedLobby typedLobby = new TypedLobby(roomName, LobbyType.Default); 
+                PhotonNetwork.JoinOrCreateRoom(roomName, roomOptions, typedLobby); 
             }
         }
 
         public void LoadArena()
-        {
-            // 5
+        {   
             if (PhotonNetwork.CurrentRoom.PlayerCount > 1)
             {
                 PhotonNetwork.LoadLevel("MainArena");
@@ -107,9 +96,7 @@ namespace Photon.Pun.Demo.PunBasics
         // Photon Methods
         public override void OnConnected()
         {
-            // 1
             base.OnConnected();
-            // 2
             connectionStatus.text = "Connected to Photon!";
             connectionStatus.color = Color.green;
             roomJoinUI.SetActive(true);
@@ -118,7 +105,6 @@ namespace Photon.Pun.Demo.PunBasics
 
         public override void OnDisconnected(DisconnectCause cause)
         {
-            // 3
             isConnecting = false;
             controlPanel.SetActive(true);
             Debug.LogError("Disconnected. Please check your Internet connection.");
@@ -126,7 +112,6 @@ namespace Photon.Pun.Demo.PunBasics
 
         public override void OnJoinedRoom()
         {
-            // 4
             if (PhotonNetwork.IsMasterClient)
             {
                 buttonLoadArena.SetActive(true);
