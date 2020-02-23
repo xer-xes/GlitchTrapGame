@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -43,6 +44,8 @@ public class GameManager : MonoBehaviour
             LSD.gameObject.SetActive(true);
             Tongue.gameObject.SetActive(true);
         }
+        if (Input.GetKeyDown(KeyCode.S))            // Temporary to skip the initial section
+            FadeToBlack();
     }
 
     public void FadeToBlack()
@@ -51,5 +54,12 @@ public class GameManager : MonoBehaviour
         float colorG = backGround.GetComponent<SpriteRenderer>().color.g;
         float colorB = backGround.GetComponent<SpriteRenderer>().color.b;
         backGround.GetComponent<SpriteRenderer>().color = new Color(colorR, colorG, colorB,0);
+        StartCoroutine("LoadLauncher");
+    }
+
+    private IEnumerator LoadLauncher()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("Launcher");
     }
 }
