@@ -10,8 +10,8 @@ namespace Photon.Pun.Demo.PunBasics
         public GameObject winnerUI;
         public GameObject player1SpawnPosition;
         public GameObject player2SpawnPosition;
-        private GameObject player1;
-        private GameObject player2;
+        public GameObject player1;
+        public GameObject player2;
 
         void Start()
         {
