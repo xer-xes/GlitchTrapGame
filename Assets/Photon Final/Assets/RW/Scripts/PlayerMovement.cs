@@ -7,22 +7,15 @@ using Photon.Pun;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 10f;
-    [SerializeField] private GameObject otherPlayer;
+   
     public string player;
     private bool isFacingForward = true;
-
-    private void Start()
-    {
-        if(GetComponent<PhotonView>().IsMine)
-        {
-            Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), otherPlayer.GetComponent<BoxCollider2D>());
-        }
-    }
-
+ 
     private void Update()
     {
         if (GetComponent<PhotonView>().IsMine)
         {
+            this.GetComponentInChildren<SpriteRenderer>().sortingOrder = 1;
             float horizontal = Input.GetAxisRaw("Horizontal");
             if (player == "Player1")
             {
@@ -57,6 +50,16 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space))
                 GetComponentInChildren<Animator>().SetTrigger("Attack");
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("In Coliision : " + gameObject.name);
+        if (collision.gameObject.GetComponent<PlayerMovement>() != null)
+        {
+            Debug.Log("Ignore");
+            Physics2D.IgnoreCollision(this.gameObject.GetComponent<BoxCollider2D>(), collision.gameObject.GetComponent<BoxCollider2D>());
         }
     }
 }

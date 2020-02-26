@@ -15,7 +15,7 @@ namespace Photon.Pun.Demo.PunBasics
 
         void Start()
         {
-            if (!PhotonNetwork.IsConnected) 
+            if (!PhotonNetwork.IsConnected)
             {
                 SceneManager.LoadScene("Launcher");
                 return;
@@ -25,10 +25,9 @@ namespace Photon.Pun.Demo.PunBasics
             {
                 if (PhotonNetwork.IsMasterClient)
                 {
-                    Debug.Log("Instantiating Player 1");
-                    player1 = PhotonNetwork.Instantiate("Player1", player1SpawnPosition.transform.position, player1SpawnPosition.transform.rotation, 0);          
+                    player1 = PhotonNetwork.Instantiate("Player1", player1SpawnPosition.transform.position, player1SpawnPosition.transform.rotation, 0);
                 }
-                else 
+                else
                 {
                     player2 = PhotonNetwork.Instantiate("Player2", player2SpawnPosition.transform.position, player2SpawnPosition.transform.rotation, 0);
                 }
@@ -37,7 +36,7 @@ namespace Photon.Pun.Demo.PunBasics
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape)) 
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
                 Application.Quit();
             }

@@ -342,7 +342,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 10
-  otherPlayer: {fileID: 0}
   player: Player2
 --- !u!50 &1131618517
 Rigidbody2D:

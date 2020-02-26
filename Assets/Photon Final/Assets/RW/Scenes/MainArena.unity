@@ -1137,6 +1137,11 @@ PrefabInstance:
       objectReference: {fileID: 480807945}
     - target: {fileID: 2571604637103906780, guid: c60a746dd1131694bae165789fbcf0a3,
         type: 3}
+      propertyPath: ObservedComponents.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2571604637103906780, guid: c60a746dd1131694bae165789fbcf0a3,
+        type: 3}
       propertyPath: viewIdField
       value: 2
       objectReference: {fileID: 0}
@@ -1144,6 +1149,11 @@ PrefabInstance:
         type: 3}
       propertyPath: InstantiationId
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2571604637103906780, guid: c60a746dd1131694bae165789fbcf0a3,
+        type: 3}
+      propertyPath: ObservedComponents.Array.data[1]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5591908005050340451, guid: c60a746dd1131694bae165789fbcf0a3,
         type: 3}
