@@ -4,7 +4,9 @@ using UnityEngine.UI;
 [ExecuteInEditMode]
 [AddComponentMenu( "UI/Simple Health Bar/Simple Health Bar" )]
 public class SimpleHealthBar : MonoBehaviour
-{	
+{
+    public string type;
+
 	// COLOR OPTIONS //
 	public Image barImage;
 	public enum ColorMode

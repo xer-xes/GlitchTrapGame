@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 747099980}
   m_Layer: 0
   m_Name: Knight_02
-  m_TagString: Untagged
+  m_TagString: PlayerWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,8 +126,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 4110862708206267683}
-  viewIdField: 3
-  InstantiationId: 3
+  viewIdField: 8
+  InstantiationId: 8
   isRuntimeInstantiated: 0
 --- !u!114 &4016567279999125269
 MonoBehaviour:
@@ -181,7 +181,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 3.5, y: -0.5}
+  m_Offset: {x: 2.8737445, y: -0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -192,7 +192,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4, y: 2}
+  m_Size: {x: 2.747489, y: 2}
   m_EdgeRadius: 0
 --- !u!114 &747099980
 MonoBehaviour:
@@ -311,8 +311,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 8448146183033172643}
-  viewIdField: 7
-  InstantiationId: 7
+  viewIdField: 4
+  InstantiationId: 4
   isRuntimeInstantiated: 0
 --- !u!114 &8448146183033172643
 MonoBehaviour:
@@ -343,6 +343,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 10
   player: Player2
+  health: 30
+  maxHealth: 100
 --- !u!50 &1131618517
 Rigidbody2D:
   serializedVersion: 4
@@ -416,6 +418,14 @@ PrefabInstance:
     - target: {fileID: 119886, guid: 34017cf12560c804bb2f669f00c7af91, type: 3}
       propertyPath: m_Name
       value: Fancy Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 11429798, guid: 34017cf12560c804bb2f669f00c7af91, type: 3}
+      propertyPath: type
+      value: Health
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471602, guid: 34017cf12560c804bb2f669f00c7af91, type: 3}
+      propertyPath: type
+      value: Mana
       objectReference: {fileID: 0}
     - target: {fileID: 22486214, guid: 34017cf12560c804bb2f669f00c7af91, type: 3}
       propertyPath: m_LocalPosition.x

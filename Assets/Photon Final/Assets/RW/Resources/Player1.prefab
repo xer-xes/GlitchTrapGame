@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 3627461829536357446}
   m_Layer: 0
   m_Name: Knight_03
-  m_TagString: Untagged
+  m_TagString: PlayerWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -181,7 +181,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 3.5, y: -0.5}
+  m_Offset: {x: 2.8860953, y: -0.56143904}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -192,7 +192,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4, y: 2}
+  m_Size: {x: 2.7721906, y: 1.4839125}
   m_EdgeRadius: 0
 --- !u!114 &3627461829536357446
 MonoBehaviour:
@@ -343,6 +343,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 10
   player: Player1
+  health: 30
+  maxHealth: 100
 --- !u!50 &411162880
 Rigidbody2D:
   serializedVersion: 4
@@ -416,6 +418,14 @@ PrefabInstance:
     - target: {fileID: 119886, guid: 34017cf12560c804bb2f669f00c7af91, type: 3}
       propertyPath: m_Name
       value: Fancy Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 11429798, guid: 34017cf12560c804bb2f669f00c7af91, type: 3}
+      propertyPath: type
+      value: Health
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471602, guid: 34017cf12560c804bb2f669f00c7af91, type: 3}
+      propertyPath: type
+      value: Mana
       objectReference: {fileID: 0}
     - target: {fileID: 22486214, guid: 34017cf12560c804bb2f669f00c7af91, type: 3}
       propertyPath: m_LocalPosition.x

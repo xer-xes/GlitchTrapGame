@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon;
 using Photon.Pun;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,12 +11,19 @@ public class PlayerMovement : MonoBehaviour
    
     public string player;
     private bool isFacingForward = true;
- 
+    [SerializeField] private int health = 100;
+    [SerializeField] private int maxHealth = 100;
+
+    private void Start()
+    {
+        if (GetComponent<PhotonView>().IsMine)
+            this.GetComponentInChildren<SpriteRenderer>().sortingOrder = 1;
+    }
+
     private void Update()
     {
         if (GetComponent<PhotonView>().IsMine)
         {
-            this.GetComponentInChildren<SpriteRenderer>().sortingOrder = 1;
             float horizontal = Input.GetAxisRaw("Horizontal");
             if (player == "Player1")
             {
@@ -55,11 +63,22 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("In Coliision : " + gameObject.name);
         if (collision.gameObject.GetComponent<PlayerMovement>() != null)
         {
-            Debug.Log("Ignore");
             Physics2D.IgnoreCollision(this.gameObject.GetComponent<BoxCollider2D>(), collision.gameObject.GetComponent<BoxCollider2D>());
         }
+    }
+
+    public void TakeDamage()
+    {
+        this.health -= 10;
+        foreach(var health in GetComponentsInChildren<SimpleHealthBar>())
+        {
+            if(health.type == "Health")
+            {
+                //health.gameObject.GetComponent<Image>().fillAmount = (float) Mathf.Abs((this.health - this.maxHealth)) / this.maxHealth;
+            }
+        }
+        Debug.Log("Health - 10 " + this.gameObject.name);
     }
 }
