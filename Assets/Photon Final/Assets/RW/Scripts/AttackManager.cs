@@ -31,7 +31,7 @@ public class AttackManager : MonoBehaviour
                 hit = false;
                 if (collision.gameObject.GetComponent<PlayerMovement>() != null && collision.gameObject != this.transform.parent.gameObject)
                 {
-                    collision.gameObject.GetComponent<PlayerMovement>().TakeDamage();
+                    collision.gameObject.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All);
                 }
             }
         }

@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isFacingForward = true;
     [SerializeField] private int health = 100;
     [SerializeField] private int maxHealth = 100;
+    private float horizontal;
 
     private void Start()
     {
@@ -24,17 +25,21 @@ public class PlayerMovement : MonoBehaviour
     {
         if (GetComponent<PhotonView>().IsMine)
         {
-            float horizontal = Input.GetAxisRaw("Horizontal");
+            if (!GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+                horizontal = Input.GetAxisRaw("Horizontal");
+            else
+                horizontal = 0;
+
             if (player == "Player1")
             {
                 if (horizontal < 0 && isFacingForward)
                 {
-                    GetComponentInChildren<SpriteRenderer>().flipX = true;
+                    transform.localScale = new Vector3(-1 * transform.localScale.x , transform.localScale.y, transform.localScale.z);
                     isFacingForward = false;
                 }
                 else if (horizontal > 0 && !isFacingForward)
                 {
-                    GetComponentInChildren<SpriteRenderer>().flipX = false;
+                    transform.localScale = new Vector3(-1 * transform.localScale.x, transform.localScale.y, transform.localScale.z);
                     isFacingForward = true;
                 }
             }
@@ -42,12 +47,12 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (horizontal > 0 && isFacingForward)
                 {
-                    GetComponentInChildren<SpriteRenderer>().flipX = true;
+                    transform.localScale = new Vector3(-1 * transform.localScale.x, transform.localScale.y, transform.localScale.z);
                     isFacingForward = false;
                 }
                 else if (horizontal < 0 && !isFacingForward)
                 {
-                    GetComponentInChildren<SpriteRenderer>().flipX = false;
+                    transform.localScale = new Vector3(-1 * transform.localScale.x, transform.localScale.y, transform.localScale.z);
                     isFacingForward = true;
                 }
             }
@@ -69,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    [PunRPC]
     public void TakeDamage()
     {
         this.health -= 10;
@@ -76,9 +82,8 @@ public class PlayerMovement : MonoBehaviour
         {
             if(health.type == "Health")
             {
-                //health.gameObject.GetComponent<Image>().fillAmount = (float) Mathf.Abs((this.health - this.maxHealth)) / this.maxHealth;
+                health.gameObject.GetComponent<Image>().fillAmount = (float) this.health / this.maxHealth;
             }
         }
-        Debug.Log("Health - 10 " + this.gameObject.name);
     }
 }
