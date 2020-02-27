@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 442342994}
   - component: {fileID: 442342993}
   - component: {fileID: 442342996}
-  - component: {fileID: 442342995}
   - component: {fileID: 7611381968078687397}
   - component: {fileID: 797596959}
   - component: {fileID: 3627461829536357446}
+  - component: {fileID: 442342995}
   m_Layer: 0
   m_Name: Knight_03
   m_TagString: PlayerWeapon
@@ -126,33 +126,9 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 7611381968078687397}
-  viewIdField: 2
-  InstantiationId: 2
+  viewIdField: 5
+  InstantiationId: 5
   isRuntimeInstantiated: 0
---- !u!114 &442342995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 442342991}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowLayerWeightsInspector: 1
-  ShowParameterInspector: 1
-  m_SynchronizeParameters:
-  - Type: 3
-    SynchronizeType: 2
-    Name: Speed
-  - Type: 9
-    SynchronizeType: 0
-    Name: Attack
-  m_SynchronizeLayers:
-  - SynchronizeType: 2
-    LayerIndex: 0
 --- !u!114 &7611381968078687397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,6 +182,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0c15545f0e2ba54c80450db8ad5bf53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &442342995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442342991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 3
+    SynchronizeType: 2
+    Name: Speed
+  - Type: 9
+    SynchronizeType: 2
+    Name: Attack
+  - Type: 9
+    SynchronizeType: 2
+    Name: Dead
+  m_SynchronizeLayers:
+  - SynchronizeType: 2
+    LayerIndex: 0
 --- !u!95 &987859754
 Animator:
   serializedVersion: 3
@@ -248,7 +251,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5591908005050340454
 Transform:
   m_ObjectHideFlags: 0
@@ -330,8 +333,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 5735469728329666201}
-  viewIdField: 6
-  InstantiationId: 6
+  viewIdField: 8
+  InstantiationId: 8
   isRuntimeInstantiated: 0
 --- !u!114 &5735469728329666201
 MonoBehaviour:

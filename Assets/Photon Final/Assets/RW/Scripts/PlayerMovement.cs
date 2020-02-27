@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Photon;
+﻿using UnityEngine;
 using Photon.Pun;
 using UnityEngine.UI;
 
@@ -85,5 +82,7 @@ public class PlayerMovement : MonoBehaviour
                 health.gameObject.GetComponent<Image>().fillAmount = (float) this.health / this.maxHealth;
             }
         }
+        if (this.health <= 0)
+            GetComponentInChildren<Animator>().SetTrigger("Dead");
     }
 }
