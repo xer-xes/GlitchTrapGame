@@ -56,10 +56,10 @@ public class PlayerMovement : MonoBehaviour
 
             if(!GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Attack"))
                 transform.position += new Vector3(horizontal, 0, 0) * Time.deltaTime * movementSpeed;
-            GetComponentInChildren<Animator>().SetInteger("Speed", (int)horizontal);
+            GetComponentInChildren<AttackManager>().GetComponent<PhotonView>().RPC("Walking", RpcTarget.All, (int)horizontal);
 
             if (Input.GetKeyDown(KeyCode.Space))
-                GetComponentInChildren<Animator>().SetTrigger("Attack");
+                GetComponentInChildren<AttackManager>().GetComponent<PhotonView>().RPC("Attack", RpcTarget.All);
         }
     }
 
@@ -83,6 +83,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         if (this.health <= 0)
-            GetComponentInChildren<Animator>().SetTrigger("Dead");
+            GetComponentInChildren<AttackManager>().GetComponent<PhotonView>().RPC("Dead", RpcTarget.All);
     }
 }

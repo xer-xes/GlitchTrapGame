@@ -33,4 +33,7 @@ MonoBehaviour:
   - Fire
   - RespawnSpaceship
   - TakeDamage
+  - Attack
+  - Dead
+  - Walking
   DisableAutoOpenWizard: 1

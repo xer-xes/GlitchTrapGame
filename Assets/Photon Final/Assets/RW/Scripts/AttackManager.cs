@@ -36,4 +36,22 @@ public class AttackManager : MonoBehaviour
             }
         }
     }
+
+    [PunRPC]
+    public void Attack()
+    {
+        GetComponent<Animator>().SetTrigger("Attack");
+    }
+
+    [PunRPC]
+    public void Dead()
+    {
+        GetComponent<Animator>().SetTrigger("Dead");
+    }
+
+    [PunRPC]
+    public void Walking(int speed)
+    {
+        GetComponent<Animator>().SetInteger("Speed", speed);
+    }
 }
