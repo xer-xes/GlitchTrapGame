@@ -3156,12 +3156,12 @@ PrefabInstance:
     - target: {fileID: 3549827764439055227, guid: f4ef7a0d4c7ec3341a857b4fb749d329,
         type: 3}
       propertyPath: viewIdField
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3549827764439055227, guid: f4ef7a0d4c7ec3341a857b4fb749d329,
         type: 3}
       propertyPath: InstantiationId
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5591908005050340451, guid: f4ef7a0d4c7ec3341a857b4fb749d329,
         type: 3}
@@ -3226,12 +3226,12 @@ PrefabInstance:
     - target: {fileID: 7271343455149067108, guid: f4ef7a0d4c7ec3341a857b4fb749d329,
         type: 3}
       propertyPath: viewIdField
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7271343455149067108, guid: f4ef7a0d4c7ec3341a857b4fb749d329,
         type: 3}
       propertyPath: InstantiationId
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4ef7a0d4c7ec3341a857b4fb749d329, type: 3}
@@ -8291,6 +8291,8 @@ MonoBehaviour:
   rightRangeSpawn: {fileID: 1128999210}
   leftMeleeSpawn: {fileID: 973604032}
   leftRangeSpawn: {fileID: 533674263}
+  rightCreep: {fileID: 0}
+  leftCreep: {fileID: 0}
 --- !u!4 &1747708652
 Transform:
   m_ObjectHideFlags: 0
@@ -9714,11 +9716,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 442342996, guid: c60a746dd1131694bae165789fbcf0a3, type: 3}
       propertyPath: viewIdField
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 442342996, guid: c60a746dd1131694bae165789fbcf0a3, type: 3}
       propertyPath: InstantiationId
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2032493697, guid: c60a746dd1131694bae165789fbcf0a3, type: 3}
       propertyPath: m_Camera

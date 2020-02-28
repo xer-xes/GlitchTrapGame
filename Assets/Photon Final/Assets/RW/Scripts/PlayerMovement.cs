@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private int health = 100;
     [SerializeField] private int maxHealth = 100;
     private float horizontal;
+    private bool dead = false;
 
     private void Start()
     {
@@ -22,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (GetComponent<PhotonView>().IsMine)
         {
-            if (!GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+            if (!GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Attack") && !dead)
                 horizontal = Input.GetAxisRaw("Horizontal");
             else
                 horizontal = 0;
@@ -75,14 +76,17 @@ public class PlayerMovement : MonoBehaviour
     public void TakeDamage()
     {
         this.health -= 10;
-        foreach(var health in GetComponentsInChildren<SimpleHealthBar>())
+        foreach (var health in GetComponentsInChildren<SimpleHealthBar>())
         {
-            if(health.type == "Health")
+            if (health.type == "Health")
             {
-                health.gameObject.GetComponent<Image>().fillAmount = (float) this.health / this.maxHealth;
+                health.gameObject.GetComponent<Image>().fillAmount = (float)this.health / this.maxHealth;
             }
         }
         if (this.health <= 0)
+        {
+            dead = true;
             GetComponentInChildren<AttackManager>().GetComponent<PhotonView>().RPC("Dead", RpcTarget.All);
+        }
     }
 }
