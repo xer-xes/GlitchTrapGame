@@ -126,8 +126,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 4110862708206267683}
-  viewIdField: 1
-  InstantiationId: 1
+  viewIdField: 3
+  InstantiationId: 3
   isRuntimeInstantiated: 0
 --- !u!114 &4110862708206267683
 MonoBehaviour:
@@ -226,13 +226,14 @@ GameObject:
   - component: {fileID: 1131618517}
   - component: {fileID: 1131618515}
   - component: {fileID: 6025412228576532287}
+  - component: {fileID: 7662919613787818311}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5591908005050340454
 Transform:
   m_ObjectHideFlags: 0
@@ -314,8 +315,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 8448146183033172643}
-  viewIdField: 4
-  InstantiationId: 4
+  viewIdField: 7
+  InstantiationId: 7
   isRuntimeInstantiated: 0
 --- !u!114 &8448146183033172643
 MonoBehaviour:
@@ -411,6 +412,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.7582052, y: 5.081955}
   m_EdgeRadius: 0
+--- !u!114 &7662919613787818311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5591908005050340451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d39b42d6d69f8a4f84a1864d7676adc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 0}
 --- !u!1001 &1322077920
 PrefabInstance:
   m_ObjectHideFlags: 0
