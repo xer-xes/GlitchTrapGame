@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Tongue
   - PlayerWeapon
+  - Ball
+  - Left
+  - Right
   layers:
   - Default
   - TransparentFX
