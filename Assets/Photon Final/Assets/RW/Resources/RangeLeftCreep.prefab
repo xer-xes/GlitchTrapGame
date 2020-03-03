@@ -40,12 +40,12 @@ GameObject:
   m_Component:
   - component: {fileID: 783445658086753569}
   - component: {fileID: 783445658086753574}
+  - component: {fileID: 5503427329615431592}
   - component: {fileID: 783445658086753575}
   - component: {fileID: 1115285802}
   - component: {fileID: 1115285804}
   - component: {fileID: 1115285803}
   - component: {fileID: 8309329520174492261}
-  - component: {fileID: 5503427329615431592}
   m_Layer: 0
   m_Name: RangeLeftCreep
   m_TagString: Left
@@ -118,6 +118,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5503427329615431592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783445658086753572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97315600bace77c47a0dcb0c653f755b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: RangeLeft
+  isAttacking: 0
+  bulletSpawnPoint: {fileID: 295276771}
+  damage: 3
 --- !u!95 &783445658086753575
 Animator:
   serializedVersion: 3
@@ -221,19 +237,3 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0
---- !u!114 &5503427329615431592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 783445658086753572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97315600bace77c47a0dcb0c653f755b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: RangeLeft
-  isAttacking: 0
-  bulletSpawnPoint: {fileID: 295276771}
-  damage: 3
