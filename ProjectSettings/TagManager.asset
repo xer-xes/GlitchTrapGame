@@ -9,6 +9,7 @@ TagManager:
   - Ball
   - Left
   - Right
+  - LeftBullet
   layers:
   - Default
   - TransparentFX

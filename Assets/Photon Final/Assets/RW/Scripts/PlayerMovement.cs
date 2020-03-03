@@ -75,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
     [PunRPC]
     public void TakeDamage()
     {
+        Debug.Log("Called function");
         this.health -= 10;
         foreach (var health in GetComponentsInChildren<SimpleHealthBar>())
         {

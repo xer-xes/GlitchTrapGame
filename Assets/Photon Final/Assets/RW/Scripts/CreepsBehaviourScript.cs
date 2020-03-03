@@ -8,6 +8,9 @@ public class CreepsBehaviourScript : MonoBehaviour
 {
     public string type;
     public bool isAttacking = false;
+    private GameObject leftRangeBullet;
+    [SerializeField] private Transform bulletSpawnPoint;
+    public int damage;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -44,6 +47,7 @@ public class CreepsBehaviourScript : MonoBehaviour
 
     public void LaunchBullet()
     {
-
+        leftRangeBullet = PhotonNetwork.Instantiate("LeftRangeBullet", bulletSpawnPoint.position, Quaternion.identity, 1);
+        leftRangeBullet.transform.parent = this.gameObject.transform;
     }
 }
