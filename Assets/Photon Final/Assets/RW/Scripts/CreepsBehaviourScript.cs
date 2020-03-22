@@ -12,7 +12,7 @@ public class CreepsBehaviourScript : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private int maxHealth = 40;
     [SerializeField] private int health = 40;
-    private bool dead = false;
+    public bool dead = false;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

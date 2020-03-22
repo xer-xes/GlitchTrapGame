@@ -7,23 +7,43 @@ public class CreepRangeFinder : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (this.gameObject.tag == "Range")
-        {
-            if (collision.gameObject.tag == "Right" ||
-                 (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerMovement>().player == "Player2"))
+        {       //------------------------------ FOR LEFT
+            if (transform.parent.tag == "Left")
             {
-                transform.parent.GetComponent<CreepsBehaviourScript>().isAttacking = true;
-                if (collision.gameObject.tag == "Right")
-                    collision.gameObject.GetComponent<CreepsBehaviourScript>().isAttacking = true;
-                
-                if(isFacingForward && transform.parent.position.x > collision.gameObject.transform.position.x)
+                if (collision.gameObject.tag == "Right" ||
+                     (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerMovement>().player == "Player2"))
                 {
-                    transform.parent.localScale = new Vector3(-1 * transform.parent.localScale.x, transform.parent.localScale.y, transform.parent.localScale.z);
-                    isFacingForward = false;
+                    transform.parent.GetComponent<CreepsBehaviourScript>().isAttacking = true;
+
+                    if (isFacingForward && transform.parent.position.x > collision.gameObject.transform.position.x)
+                    {
+                        transform.parent.localScale = new Vector3(-1 * transform.parent.localScale.x, transform.parent.localScale.y, transform.parent.localScale.z);
+                        isFacingForward = false;
+                    }
+                    else if (!isFacingForward && transform.parent.position.x < collision.gameObject.transform.position.x)
+                    {
+                        transform.parent.localScale = new Vector3(-1 * transform.parent.localScale.x, transform.parent.localScale.y, transform.parent.localScale.z);
+                        isFacingForward = true;
+                    }
                 }
-                else if(!isFacingForward && transform.parent.position.x < collision.gameObject.transform.position.x)
+            }           //-------------------------  FOR RIGHT
+            else if(transform.parent.tag == "Right")
+            {
+                if (collision.gameObject.tag == "Left" ||
+                    (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerMovement>().player == "Player1"))
                 {
-                    transform.parent.localScale = new Vector3(-1 * transform.parent.localScale.x, transform.parent.localScale.y, transform.parent.localScale.z);
-                    isFacingForward = true;
+                    transform.parent.GetComponent<CreepsBehaviourScript>().isAttacking = true;
+
+                    if (isFacingForward && transform.parent.position.x < collision.gameObject.transform.position.x)
+                    {
+                        transform.parent.localScale = new Vector3(-1 * transform.parent.localScale.x, transform.parent.localScale.y, transform.parent.localScale.z);
+                        isFacingForward = false;
+                    }
+                    else if (!isFacingForward && transform.parent.position.x > collision.gameObject.transform.position.x)
+                    {
+                        transform.parent.localScale = new Vector3(-1 * transform.parent.localScale.x, transform.parent.localScale.y, transform.parent.localScale.z);
+                        isFacingForward = true;
+                    }
                 }
             }
         }
@@ -32,14 +52,22 @@ public class CreepRangeFinder : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (this.gameObject.tag == "Range")
-        {
-            if (collision.gameObject.tag == "Right" ||
-                (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerMovement>().player == "Player2"))
+        {       //----------------------------  FOR LEFT
+            if (transform.parent.tag == "Left")
             {
-                transform.parent.GetComponent<CreepsBehaviourScript>().isAttacking = false;
-                if (collision.gameObject.tag == "Right")
-                    collision.gameObject.GetComponent<CreepsBehaviourScript>().isAttacking = false;
-                
+                if (collision.gameObject.tag == "Right" ||
+                    (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerMovement>().player == "Player2"))
+                {
+                    transform.parent.GetComponent<CreepsBehaviourScript>().isAttacking = false;
+                }
+            }       //--------------------------- FOR RIGHT
+            else if(transform.parent.tag == "Right")
+            {
+                if (collision.gameObject.tag == "Left" ||
+                   (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerMovement>().player == "Player1"))
+                {
+                    transform.parent.GetComponent<CreepsBehaviourScript>().isAttacking = false;
+                }
             }
             if (!isFacingForward)
             {

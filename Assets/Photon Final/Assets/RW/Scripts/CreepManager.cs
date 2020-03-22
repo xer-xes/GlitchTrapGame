@@ -22,5 +22,6 @@ public class CreepManager : MonoBehaviour
     private void SpawnCreeps()
     {
         GameObject rangeLeft = PhotonNetwork.Instantiate("RangeLeftCreep", leftRangeSpawn.transform.position, Quaternion.identity, 0);
+        GameObject rangeRight = PhotonNetwork.Instantiate("RangeRightCreep", rightRangeSpawn.transform.position, Quaternion.identity, 0);
     }
 }
