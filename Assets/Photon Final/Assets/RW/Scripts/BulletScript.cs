@@ -1,31 +1,60 @@
 ﻿using UnityEngine;
 using Photon.Pun;
+using System.Collections;
 
 public class BulletScript : MonoBehaviour
 {
     [SerializeField] private float speed;
+    public bool isForward = true;
+    public int damage;
 
-    private void Start()
-    {
-        this.transform.localScale = 
-            new Vector3(transform.parent.transform.localScale.x * transform.localScale.x, transform.localScale.y, transform.localScale.z);
-    }
+	private void Awake()
+	{
+        StartCoroutine("KillBullet");
+	}
 
     private void Update()
     {
-        transform.position += Vector3.right * speed * Time.deltaTime;
+        if (PhotonNetwork.IsMasterClient)
+        {
+            if (isForward)
+            {
+                transform.position += Vector3.right * speed * Time.deltaTime;
+                Debug.Log("Is this running anyway ? " + isForward);
+            }
+            else
+                transform.position += Vector3.left * speed * Time.deltaTime;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (this.gameObject.tag == "LeftBullet")
+        if (PhotonNetwork.IsMasterClient)
         {
-            if (collision.gameObject.tag == "Right" ||
-                 (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerMovement>().player == "Player2"))
+            if (this.gameObject.tag == "LeftBullet")
             {
-                collision.gameObject.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All);
-                Destroy(this.gameObject);
+                if (collision.gameObject.tag == "Right" ||
+                     (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerMovement>().player == "Player2"))
+                {
+                    collision.gameObject.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, this.damage);
+                    GetComponent<PhotonView>().RPC("DeleteBullet", RpcTarget.All);
+                }
             }
         }
+    }
+
+    private IEnumerator KillBullet()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            yield return new WaitForSecondsRealtime(5);
+            GetComponent<PhotonView>().RPC("DeleteBullet", RpcTarget.All);
+        }
+    }
+
+    [PunRPC]
+    public void DeleteBullet()
+    {
+        PhotonNetwork.Destroy(this.gameObject);
     }
 }

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Photon.Realtime;
 using Photon.Pun;
 
 public class CreepManager : MonoBehaviour
@@ -16,11 +15,12 @@ public class CreepManager : MonoBehaviour
 
     private void Start()
     {
-        Invoke("SpawnCreeps", 10);
+        if (PhotonNetwork.IsMasterClient)
+            InvokeRepeating("SpawnCreeps", 10, 30);
     }
 
     private void SpawnCreeps()
     {
-        GameObject rangeLeft = PhotonNetwork.Instantiate("RangeLeftCreep", leftRangeSpawn.transform.position, Quaternion.identity, 1);
+        GameObject rangeLeft = PhotonNetwork.Instantiate("RangeLeftCreep", leftRangeSpawn.transform.position, Quaternion.identity, 0);
     }
 }

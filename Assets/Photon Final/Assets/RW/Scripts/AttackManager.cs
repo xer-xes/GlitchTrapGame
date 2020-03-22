@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Photon;
+﻿using UnityEngine;
 using Photon.Pun;
 
 public class AttackManager : MonoBehaviour
@@ -26,12 +23,17 @@ public class AttackManager : MonoBehaviour
         if (transform.parent.gameObject.GetComponent<PhotonView>().IsMine)
         {
             if (isAttacking && hit && collision.gameObject != this.transform.parent.gameObject &&
-                (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Opponent"))
+                (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Left"))
             {
                 hit = false;
                 if (collision.gameObject.GetComponent<PlayerMovement>() != null && collision.gameObject != this.transform.parent.gameObject)
                 {
-                    collision.gameObject.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All);
+                    collision.gameObject.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, transform.parent.GetComponent<PlayerMovement>().damage);
+                }
+                if(collision.gameObject.tag == "Left")
+                {
+                    collision.gameObject.GetComponent<CreepsBehaviourScript>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, 
+                                                                                                              transform.parent.GetComponent<PlayerMovement>().damage);
                 }
             }
         }

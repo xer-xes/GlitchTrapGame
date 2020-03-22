@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private int maxHealth = 100;
     private float horizontal;
     private bool dead = false;
+    public int damage;
 
     private void Start()
     {
@@ -73,9 +74,9 @@ public class PlayerMovement : MonoBehaviour
     }
 
     [PunRPC]
-    public void TakeDamage()
+    public void TakeDamage(int damage)
     {
-        this.health -= 10;
+        this.health -= damage;
         foreach (var health in GetComponentsInChildren<SimpleHealthBar>())
         {
             if (health.type == "Health")

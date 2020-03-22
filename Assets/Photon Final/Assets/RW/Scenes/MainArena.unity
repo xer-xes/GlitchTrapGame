@@ -3156,17 +3156,22 @@ PrefabInstance:
     - target: {fileID: 3549827764439055227, guid: f4ef7a0d4c7ec3341a857b4fb749d329,
         type: 3}
       propertyPath: viewIdField
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3549827764439055227, guid: f4ef7a0d4c7ec3341a857b4fb749d329,
         type: 3}
       propertyPath: InstantiationId
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5591908005050340451, guid: f4ef7a0d4c7ec3341a857b4fb749d329,
         type: 3}
       propertyPath: m_Name
       value: Player2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5591908005050340451, guid: f4ef7a0d4c7ec3341a857b4fb749d329,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5591908005050340454, guid: f4ef7a0d4c7ec3341a857b4fb749d329,
         type: 3}
@@ -3226,12 +3231,12 @@ PrefabInstance:
     - target: {fileID: 7271343455149067108, guid: f4ef7a0d4c7ec3341a857b4fb749d329,
         type: 3}
       propertyPath: viewIdField
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7271343455149067108, guid: f4ef7a0d4c7ec3341a857b4fb749d329,
         type: 3}
       propertyPath: InstantiationId
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4ef7a0d4c7ec3341a857b4fb749d329, type: 3}
@@ -9724,11 +9729,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 442342996, guid: c60a746dd1131694bae165789fbcf0a3, type: 3}
       propertyPath: viewIdField
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 442342996, guid: c60a746dd1131694bae165789fbcf0a3, type: 3}
       propertyPath: InstantiationId
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2032493697, guid: c60a746dd1131694bae165789fbcf0a3, type: 3}
       propertyPath: m_Camera
@@ -9737,12 +9742,12 @@ PrefabInstance:
     - target: {fileID: 2571604637103906780, guid: c60a746dd1131694bae165789fbcf0a3,
         type: 3}
       propertyPath: viewIdField
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2571604637103906780, guid: c60a746dd1131694bae165789fbcf0a3,
         type: 3}
       propertyPath: InstantiationId
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5591908005050340451, guid: c60a746dd1131694bae165789fbcf0a3,
         type: 3}
@@ -10441,13 +10446,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 295276770, guid: 2bec9d2528cc75c48b3b1221d54bb016, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1115285804, guid: 2bec9d2528cc75c48b3b1221d54bb016, type: 3}
       propertyPath: viewIdField
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1115285804, guid: 2bec9d2528cc75c48b3b1221d54bb016, type: 3}
       propertyPath: InstantiationId
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 783445658086753569, guid: 2bec9d2528cc75c48b3b1221d54bb016,
         type: 3}
@@ -10513,6 +10522,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 783445658725581609, guid: 2bec9d2528cc75c48b3b1221d54bb016,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 480807945}
+    - target: {fileID: 4081941947023860592, guid: 2bec9d2528cc75c48b3b1221d54bb016,
+        type: 3}
+      propertyPath: viewIdField
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081941947023860592, guid: 2bec9d2528cc75c48b3b1221d54bb016,
+        type: 3}
+      propertyPath: InstantiationId
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bec9d2528cc75c48b3b1221d54bb016, type: 3}
@@ -11284,11 +11308,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 275962919, guid: 55cfa06bbe5a2114baabaf68fa12a3e5, type: 3}
       propertyPath: viewIdField
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 275962919, guid: 55cfa06bbe5a2114baabaf68fa12a3e5, type: 3}
       propertyPath: InstantiationId
-      value: 11
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 275962919, guid: 55cfa06bbe5a2114baabaf68fa12a3e5, type: 3}
+      propertyPath: OwnershipTransfer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4877848177211477985, guid: 55cfa06bbe5a2114baabaf68fa12a3e5,
         type: 3}
