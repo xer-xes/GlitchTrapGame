@@ -64,6 +64,7 @@ public class AttackManager : MonoBehaviour
     public void Respawn()
     {
         GetComponent<SpriteRenderer>().enabled = false;
+        transform.parent.position = Vector3.zero;
         transform.parent.position = playerSpawnPosition.position;
         transform.parent.GetComponent<Rigidbody2D>().gravityScale = 0;
         StartCoroutine(Respawn(10));
