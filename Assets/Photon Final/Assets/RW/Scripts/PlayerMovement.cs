@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
                 horizontal = 0;
 
             if (player == "Player1")
-            {
+            {       //----------------------------- FOR PLAYER 1
                 if (horizontal < 0 && isFacingForward)
                 {
                     transform.localScale = new Vector3(-1 * transform.localScale.x , transform.localScale.y, transform.localScale.z);
@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
             else if(player == "Player2")
-            {
+            {       //----------------------------- FOR PLAYER2
                 if (horizontal > 0 && isFacingForward)
                 {
                     transform.localScale = new Vector3(-1 * transform.localScale.x, transform.localScale.y, transform.localScale.z);

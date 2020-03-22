@@ -8322,6 +8322,16 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 480807945}
+    - target: {fileID: 3549827764439055227, guid: f4ef7a0d4c7ec3341a857b4fb749d329,
+        type: 3}
+      propertyPath: viewIdField
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3549827764439055227, guid: f4ef7a0d4c7ec3341a857b4fb749d329,
+        type: 3}
+      propertyPath: InstantiationId
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5591908005050340451, guid: f4ef7a0d4c7ec3341a857b4fb749d329,
         type: 3}
       propertyPath: m_Name
@@ -8386,6 +8396,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271343455149067108, guid: f4ef7a0d4c7ec3341a857b4fb749d329,
+        type: 3}
+      propertyPath: viewIdField
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271343455149067108, guid: f4ef7a0d4c7ec3341a857b4fb749d329,
+        type: 3}
+      propertyPath: InstantiationId
+      value: 17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4ef7a0d4c7ec3341a857b4fb749d329, type: 3}
@@ -26461,10 +26481,28 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 442342996, guid: c60a746dd1131694bae165789fbcf0a3, type: 3}
+      propertyPath: viewIdField
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 442342996, guid: c60a746dd1131694bae165789fbcf0a3, type: 3}
+      propertyPath: InstantiationId
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 2032493697, guid: c60a746dd1131694bae165789fbcf0a3, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 480807945}
+    - target: {fileID: 2571604637103906780, guid: c60a746dd1131694bae165789fbcf0a3,
+        type: 3}
+      propertyPath: viewIdField
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2571604637103906780, guid: c60a746dd1131694bae165789fbcf0a3,
+        type: 3}
+      propertyPath: InstantiationId
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5591908005050340451, guid: c60a746dd1131694bae165789fbcf0a3,
         type: 3}
       propertyPath: m_Name

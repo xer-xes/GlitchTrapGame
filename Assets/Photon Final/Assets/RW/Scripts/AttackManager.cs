@@ -24,19 +24,39 @@ public class AttackManager : MonoBehaviour
     private void OnTriggerStay2D (Collider2D collision)
     {
         if (transform.parent.gameObject.GetComponent<PhotonView>().IsMine)
-        {
-            if (isAttacking && hit && collision.gameObject != this.transform.parent.gameObject &&
-                (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Left"))
+        {       //---------------------------------- FOR PLAYER2
+            if (transform.parent.GetComponent<PlayerMovement>().player == "Player2")
             {
-                hit = false;
-                if (collision.gameObject.GetComponent<PlayerMovement>() != null && collision.gameObject != this.transform.parent.gameObject)
+                if (isAttacking && hit && collision.gameObject != this.transform.parent.gameObject &&
+                    (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Left"))
                 {
-                    collision.gameObject.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, transform.parent.GetComponent<PlayerMovement>().damage);
+                    hit = false;
+                    if (collision.gameObject.GetComponent<PlayerMovement>() != null && collision.gameObject != this.transform.parent.gameObject)
+                    {
+                        collision.gameObject.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, transform.parent.GetComponent<PlayerMovement>().damage);
+                    }
+                    if (collision.gameObject.tag == "Left")
+                    {
+                        collision.gameObject.GetComponent<CreepsBehaviourScript>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All,
+                                                                                                                  transform.parent.GetComponent<PlayerMovement>().damage);
+                    }
                 }
-                if(collision.gameObject.tag == "Left")
+            }
+            if (transform.parent.GetComponent<PlayerMovement>().player == "Player1")
+            {       //--------------------------------- FOR PLAYER1
+                if (isAttacking && hit && collision.gameObject != this.transform.parent.gameObject &&
+                    (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Right"))
                 {
-                    collision.gameObject.GetComponent<CreepsBehaviourScript>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, 
-                                                                                                              transform.parent.GetComponent<PlayerMovement>().damage);
+                    hit = false;
+                    if (collision.gameObject.GetComponent<PlayerMovement>() != null && collision.gameObject != this.transform.parent.gameObject)
+                    {
+                        collision.gameObject.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, transform.parent.GetComponent<PlayerMovement>().damage);
+                    }
+                    if (collision.gameObject.tag == "Right")
+                    {
+                        collision.gameObject.GetComponent<CreepsBehaviourScript>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All,
+                                                                                                                  transform.parent.GetComponent<PlayerMovement>().damage);
+                    }
                 }
             }
         }
@@ -62,17 +82,17 @@ public class AttackManager : MonoBehaviour
 
     [PunRPC]
     public void Respawn()
-    {
+    {       //------------------------ DEATH TIME
         GetComponent<SpriteRenderer>().enabled = false;
         transform.parent.position = Vector3.zero;
-        transform.parent.position = playerSpawnPosition.position;
+        transform.parent.position = playerSpawnPosition.localPosition;
         transform.parent.GetComponent<Rigidbody2D>().gravityScale = 0;
         StartCoroutine(Respawn(10));
     }
 
     [PunRPC]
     private IEnumerator Respawn(int time)
-    {
+    {       //------------------------------ RESPAWN TIME
         yield return new WaitForSecondsRealtime(time);
         GetComponent<Animator>().ResetTrigger("Dead");
         GetComponent<Animator>().SetTrigger("Respawn");

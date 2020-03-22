@@ -17,7 +17,7 @@ public class BulletScript : MonoBehaviour
     private void Update()
     {
         if (PhotonNetwork.IsMasterClient)
-        {
+        {       //----------------------------- FOR LEFT
             if (isLeft)
             {
                 if (isForward)
@@ -26,7 +26,7 @@ public class BulletScript : MonoBehaviour
                     transform.position += Vector3.left * speed * Time.deltaTime;
             }
             else
-            {
+            {       //------------------------------ FOR RIGHT
                 if (isForward)
                     transform.position += Vector3.left * speed * Time.deltaTime;
                 else
@@ -38,7 +38,7 @@ public class BulletScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (PhotonNetwork.IsMasterClient)
-        {
+        {           //----------------------------------- FOR LEFT
             if (this.gameObject.tag == "LeftBullet")
             {
                 if (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerMovement>().player == "Player2")
@@ -53,7 +53,7 @@ public class BulletScript : MonoBehaviour
                 }
             }
             else if (this.gameObject.tag == "RightArrow")
-            {  
+            {       //------------------------------------ FOR RIGHT  
                 if (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerMovement>().player == "Player1")
                 {
                     collision.gameObject.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, this.damage);

@@ -38,7 +38,7 @@ public class CreepsBehaviourScript : MonoBehaviour
     public void LaunchBullet()
     {
         if (PhotonNetwork.IsMasterClient)
-        {
+        {       //-------------------------- FOR LEFT BULLET
             if (isLeft)
             {
                 RangeBullet = PhotonNetwork.Instantiate("LeftRangeBullet", bulletSpawnPoint.position, 
@@ -48,7 +48,7 @@ public class CreepsBehaviourScript : MonoBehaviour
                 RangeBullet.GetComponent<BulletScript>().isLeft = true;
             }
             else
-            {
+            {       //--------------------------- FOR RIGHT BULLET
                 RangeBullet = PhotonNetwork.Instantiate("RightRangeArrow", bulletSpawnPoint.position,
                     this.transform.GetComponentInChildren<CreepRangeFinder>().transform.rotation, 0);
                 RangeBullet.transform.Rotate(0, 0, -15);

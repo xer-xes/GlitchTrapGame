@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1196262058}
   m_Layer: 0
   m_Name: Range
-  m_TagString: Untagged
+  m_TagString: Range
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,6 +77,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8143711717907553152, guid: de4627f07c16ebb4db274f648d7ead70,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8143711717982929544, guid: de4627f07c16ebb4db274f648d7ead70,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8143711718188037105, guid: de4627f07c16ebb4db274f648d7ead70,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 8143711718432508347, guid: de4627f07c16ebb4db274f648d7ead70,
         type: 3}
       propertyPath: m_Color.r
@@ -87,10 +102,35 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.97759914
       objectReference: {fileID: 0}
+    - target: {fileID: 8143711718677656474, guid: de4627f07c16ebb4db274f648d7ead70,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8143711718738774614, guid: de4627f07c16ebb4db274f648d7ead70,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8143711718946092867, guid: de4627f07c16ebb4db274f648d7ead70,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8143711719802751240, guid: de4627f07c16ebb4db274f648d7ead70,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 8143711719878964688, guid: de4627f07c16ebb4db274f648d7ead70,
         type: 3}
       propertyPath: m_Name
       value: TowerLeft1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8143711719878964688, guid: de4627f07c16ebb4db274f648d7ead70,
+        type: 3}
+      propertyPath: m_TagString
+      value: Left
       objectReference: {fileID: 0}
     - target: {fileID: 8143711719878964689, guid: de4627f07c16ebb4db274f648d7ead70,
         type: 3}
