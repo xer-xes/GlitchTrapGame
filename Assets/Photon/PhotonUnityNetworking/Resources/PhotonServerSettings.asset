@@ -38,4 +38,5 @@ MonoBehaviour:
   - Walking
   - DeleteBullet
   - RemoveCreep
+  - Respawn
   DisableAutoOpenWizard: 1

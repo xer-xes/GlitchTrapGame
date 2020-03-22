@@ -6,13 +6,14 @@ public class CreepsBehaviourScript : MonoBehaviour
 {
     public string type;
     public bool isAttacking = false;
-    private GameObject leftRangeBullet;
+    private GameObject RangeBullet;
     [SerializeField] private Transform bulletSpawnPoint;
     public int damage;
     [SerializeField] private float speed;
     [SerializeField] private int maxHealth = 40;
     [SerializeField] private int health = 40;
     public bool dead = false;
+    public bool isLeft = true;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -26,16 +27,35 @@ public class CreepsBehaviourScript : MonoBehaviour
     {
         GetComponent<Animator>().SetBool("Attack", isAttacking);
         if (!isAttacking && !dead)
-            transform.position += Vector3.right * speed * Time.deltaTime;
+        {
+            if(isLeft)
+                transform.position += Vector3.right * speed * Time.deltaTime;
+            else
+                transform.position += Vector3.left * speed * Time.deltaTime;
+        }
     }
 
     public void LaunchBullet()
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            leftRangeBullet = PhotonNetwork.Instantiate("LeftRangeBullet", bulletSpawnPoint.position, this.transform.GetComponentInChildren<CreepRangeFinder>().transform.rotation, 0);
-            leftRangeBullet.GetComponent<BulletScript>().isForward = this.transform.GetComponentInChildren<CreepRangeFinder>().isFacingForward;
-            leftRangeBullet.GetComponent<BulletScript>().damage = this.damage;
+            if (isLeft)
+            {
+                RangeBullet = PhotonNetwork.Instantiate("LeftRangeBullet", bulletSpawnPoint.position, 
+                    this.transform.GetComponentInChildren<CreepRangeFinder>().transform.rotation, 0);
+                RangeBullet.GetComponent<BulletScript>().isForward = this.transform.GetComponentInChildren<CreepRangeFinder>().isFacingForward;
+                RangeBullet.GetComponent<BulletScript>().damage = this.damage;
+                RangeBullet.GetComponent<BulletScript>().isLeft = true;
+            }
+            else
+            {
+                RangeBullet = PhotonNetwork.Instantiate("RightRangeArrow", bulletSpawnPoint.position,
+                    this.transform.GetComponentInChildren<CreepRangeFinder>().transform.rotation, 0);
+                RangeBullet.transform.Rotate(0, 0, -15);
+                RangeBullet.GetComponent<BulletScript>().isForward = this.transform.GetComponentInChildren<CreepRangeFinder>().isFacingForward;
+                RangeBullet.GetComponent<BulletScript>().damage = this.damage;
+                RangeBullet.GetComponent<BulletScript>().isLeft = false;
+            }
         }
     }
 

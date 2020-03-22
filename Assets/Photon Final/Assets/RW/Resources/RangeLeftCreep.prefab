@@ -221,6 +221,7 @@ MonoBehaviour:
   maxHealth: 40
   health: 40
   dead: 0
+  isLeft: 1
 --- !u!95 &783445658086753575
 Animator:
   serializedVersion: 3
@@ -285,8 +286,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 1115285803}
-  viewIdField: 14
-  InstantiationId: 14
+  viewIdField: 5
+  InstantiationId: 5
   isRuntimeInstantiated: 0
 --- !u!114 &1115285803
 MonoBehaviour:

@@ -10,6 +10,8 @@ TagManager:
   - Left
   - Right
   - LeftBullet
+  - Range
+  - RightArrow
   layers:
   - Default
   - TransparentFX

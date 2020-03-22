@@ -8,10 +8,10 @@ public class PlayerMovement : MonoBehaviour
    
     public string player;
     private bool isFacingForward = true;
-    [SerializeField] private int health = 100;
-    [SerializeField] private int maxHealth = 100;
+    public int health = 100;
+    public int maxHealth = 100;
     private float horizontal;
-    private bool dead = false;
+    public bool dead = false;
     public int damage;
 
     private void Start()
@@ -78,12 +78,8 @@ public class PlayerMovement : MonoBehaviour
     {
         this.health -= damage;
         foreach (var health in GetComponentsInChildren<SimpleHealthBar>())
-        {
             if (health.type == "Health")
-            {
                 health.gameObject.GetComponent<Image>().fillAmount = (float)this.health / this.maxHealth;
-            }
-        }
         if (this.health <= 0)
         {
             dead = true;

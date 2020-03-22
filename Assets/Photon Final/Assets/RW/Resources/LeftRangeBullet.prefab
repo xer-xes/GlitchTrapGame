@@ -52,6 +52,7 @@ MonoBehaviour:
   speed: 15
   isForward: 1
   damage: 0
+  isLeft: 1
 --- !u!212 &4877848177211477987
 SpriteRenderer:
   m_ObjectHideFlags: 0

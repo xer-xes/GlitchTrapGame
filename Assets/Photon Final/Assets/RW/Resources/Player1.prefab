@@ -126,8 +126,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 7611381968078687397}
-  viewIdField: 5
-  InstantiationId: 5
+  viewIdField: 19
+  InstantiationId: 19
   isRuntimeInstantiated: 0
 --- !u!114 &7611381968078687397
 MonoBehaviour:
@@ -182,6 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0c15545f0e2ba54c80450db8ad5bf53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSpawnPosition: {fileID: 1531472966}
 --- !u!114 &442342995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,9 +207,42 @@ MonoBehaviour:
   - Type: 9
     SynchronizeType: 1
     Name: Dead
+  - Type: 9
+    SynchronizeType: 1
+    Name: Respawn
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0
+--- !u!1 &1531472965
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1531472966}
+  m_Layer: 0
+  m_Name: Player1SpawnPosition (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1531472966
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531472965}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -42.8, y: 5.24, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5591908005050340454}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5591908005050340451
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,6 +278,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 442342992}
+  - {fileID: 1531472966}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -263,6 +298,7 @@ MonoBehaviour:
   player: Player1
   health: 100
   maxHealth: 100
+  dead: 0
   damage: 10
 --- !u!114 &2571604637103906780
 MonoBehaviour:
@@ -283,8 +319,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 5735469728329666201}
-  viewIdField: 8
-  InstantiationId: 8
+  viewIdField: 20
+  InstantiationId: 20
   isRuntimeInstantiated: 0
 --- !u!114 &5735469728329666201
 MonoBehaviour:
