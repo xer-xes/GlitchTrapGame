@@ -126,8 +126,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 7611381968078687397}
-  viewIdField: 19
-  InstantiationId: 19
+  viewIdField: 18
+  InstantiationId: 18
   isRuntimeInstantiated: 0
 --- !u!114 &7611381968078687397
 MonoBehaviour:
@@ -237,7 +237,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1531472965}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -81.6, y: 5.24, z: 0}
+  m_LocalPosition: {x: -80, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5591908005050340454}
@@ -319,8 +319,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 5735469728329666201}
-  viewIdField: 4
-  InstantiationId: 4
+  viewIdField: 16
+  InstantiationId: 16
   isRuntimeInstantiated: 0
 --- !u!114 &5735469728329666201
 MonoBehaviour:

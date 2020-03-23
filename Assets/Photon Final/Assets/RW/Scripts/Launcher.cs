@@ -6,17 +6,11 @@ namespace Photon.Pun.Demo.PunBasics
 {
     public class Launcher : MonoBehaviourPunCallbacks
     {
-        [SerializeField]
-        private GameObject controlPanel;
-
-        [SerializeField]
-        private Text feedbackText;
-
-        [SerializeField]
-        private byte maxPlayersPerRoom = 2;
+        [SerializeField] private GameObject controlPanel;
+        [SerializeField] private Text feedbackText;
+        [SerializeField] private byte maxPlayersPerRoom = 2;
 
         bool isConnecting;
-
         string gameVersion = "1";
 
         [Space(10)]

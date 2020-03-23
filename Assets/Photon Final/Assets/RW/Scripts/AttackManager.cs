@@ -84,7 +84,10 @@ public class AttackManager : MonoBehaviour
     public void Respawn()
     {       //------------------------ DEATH TIME
         GetComponent<SpriteRenderer>().enabled = false;
-        transform.parent.position = Vector3.zero - playerSpawnPosition.localPosition;
+        if (transform.parent.GetComponent<PlayerMovement>().player == "Player1")
+            transform.parent.position = Vector3.zero + playerSpawnPosition.localPosition;
+        else
+            transform.parent.position = Vector3.zero - playerSpawnPosition.localPosition;
         StartCoroutine(Respawn(10));
     }
 
