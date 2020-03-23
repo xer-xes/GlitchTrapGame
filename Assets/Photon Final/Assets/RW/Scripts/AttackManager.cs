@@ -84,9 +84,7 @@ public class AttackManager : MonoBehaviour
     public void Respawn()
     {       //------------------------ DEATH TIME
         GetComponent<SpriteRenderer>().enabled = false;
-        transform.parent.position = Vector3.zero;
-        transform.parent.position = playerSpawnPosition.localPosition;
-        transform.parent.GetComponent<Rigidbody2D>().gravityScale = 0;
+        transform.parent.position = Vector3.zero - playerSpawnPosition.localPosition;
         StartCoroutine(Respawn(10));
     }
 
@@ -97,7 +95,6 @@ public class AttackManager : MonoBehaviour
         GetComponent<Animator>().ResetTrigger("Dead");
         GetComponent<Animator>().SetTrigger("Respawn");
         GetComponent<SpriteRenderer>().enabled = true;
-        transform.parent.GetComponent<Rigidbody2D>().gravityScale = 1;
         transform.parent.GetComponent<PlayerMovement>().dead = false;
         transform.parent.GetComponent<PlayerMovement>().health = transform.parent.GetComponent<PlayerMovement>().maxHealth;
         foreach (var health in GetComponentsInChildren<SimpleHealthBar>())

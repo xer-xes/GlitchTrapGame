@@ -70,6 +70,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae492565ed01ce34290d914429bbb572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLeft: 1
+  damage: 20
 --- !u!1001 &1258471293992516654
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -110,7 +112,7 @@ PrefabInstance:
     - target: {fileID: 8143711718738774614, guid: de4627f07c16ebb4db274f648d7ead70,
         type: 3}
       propertyPath: m_SortingOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8143711718946092867, guid: de4627f07c16ebb4db274f648d7ead70,
         type: 3}

@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+// TODO : Sort the continuous flipping of the sprite.
 public class CreepRangeFinder : MonoBehaviour
 {
     public bool isFacingForward = true;

@@ -72,7 +72,7 @@ public class BulletScript : MonoBehaviour
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            yield return new WaitForSecondsRealtime(5);
+            yield return new WaitForSecondsRealtime(3);
             GetComponent<PhotonView>().RPC("DeleteBullet", RpcTarget.All);
         }
     }
