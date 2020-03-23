@@ -10,6 +10,7 @@ public class TowerRangeFinder : MonoBehaviour
     public bool isLeft;
     public int damage;
     private GameObject towerBullet;
+    private bool isPlayerInRange = false;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -20,7 +21,14 @@ public class TowerRangeFinder : MonoBehaviour
                 if (collision.gameObject.tag == "Right" ||
                     (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerMovement>().player == "Player2"))
                 {
+                    if (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerMovement>().player == "Player2")
+                        isPlayerInRange = true;
+
                     isAttacking = true;
+
+                    if (isPlayerInRange && collision.gameObject.tag == "Right")
+                        return;
+
                     if (isShootingForward && collision.gameObject.transform.position.x < transform.position.x)
                         isShootingForward = false;
                     else if (!isShootingForward && collision.gameObject.transform.position.x > transform.position.x)
@@ -32,7 +40,14 @@ public class TowerRangeFinder : MonoBehaviour
                 if (collision.gameObject.tag == "Left" ||
                     (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerMovement>().player == "Player1"))
                 {
+                    if (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerMovement>().player == "Player1")
+                        isPlayerInRange = true;
+
                     isAttacking = true;
+
+                    if (isPlayerInRange && collision.gameObject.tag == "Left")
+                        return;
+
                     if (isShootingForward && collision.gameObject.transform.position.x > transform.position.x)
                         isShootingForward = false;
                     else if (!isShootingForward && collision.gameObject.transform.position.x < transform.position.x)
@@ -47,16 +62,22 @@ public class TowerRangeFinder : MonoBehaviour
         if(this.gameObject.tag == "Range")
         {        //---------------------- FOR LEFT
             if (transform.parent.tag == "Left")
-            {      
+            {
                 if (collision.gameObject.tag == "Right" ||
                    (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerMovement>().player == "Player2"))
+                {
+                    if (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerMovement>().player == "Player2")
+                        isPlayerInRange = false;
                     isAttacking = false;
+                }
             }
             else if (transform.parent.tag == "Right")
             {       //--------------------------- FOR RIGHT
                 if (collision.gameObject.tag == "Left" ||
                    (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerMovement>().player == "Player1"))
                 {
+                    if (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerMovement>().player == "Player1")
+                        isPlayerInRange = false;
                     isAttacking = false;
                 }
             }
