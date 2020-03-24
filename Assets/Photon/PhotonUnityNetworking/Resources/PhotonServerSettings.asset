@@ -39,4 +39,5 @@ MonoBehaviour:
   - DeleteBullet
   - RemoveCreep
   - Respawn
+  - SetPlayerName
   DisableAutoOpenWizard: 1

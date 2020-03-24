@@ -17,7 +17,10 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         if (GetComponent<PhotonView>().IsMine)
+        {
             this.GetComponentInChildren<SpriteRenderer>().sortingOrder = 1;
+            GetComponent<PhotonView>().RPC("SetPlayerName", RpcTarget.All);
+        }
     }
 
     private void Update()
@@ -85,5 +88,14 @@ public class PlayerMovement : MonoBehaviour
             dead = true;
             GetComponentInChildren<AttackManager>().GetComponent<PhotonView>().RPC("Dead", RpcTarget.All);
         }
+    }
+
+    [PunRPC]
+    private void SetPlayerName()
+    {
+        if (GetComponent<PhotonView>().IsMine)
+            GetComponentInChildren<TextMesh>().text = PhotonNetwork.LocalPlayer.NickName;
+        else
+            GetComponentInChildren<TextMesh>().text = PhotonNetwork.PlayerListOthers[0].NickName;
     }
 }
