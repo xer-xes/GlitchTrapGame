@@ -40,4 +40,5 @@ MonoBehaviour:
   - RemoveCreep
   - Respawn
   - SetPlayerName
+  - GainExperience
   DisableAutoOpenWizard: 1

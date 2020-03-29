@@ -13,6 +13,9 @@ public class PlayerMovement : MonoBehaviour
     private float horizontal;
     public bool dead = false;
     public int damage;
+    private int experience = 0;
+    private int newExperienceLevel = 10;
+    private int level = 1;
 
     private void Start()
     {
@@ -93,6 +96,21 @@ public class PlayerMovement : MonoBehaviour
             dead = true;
             GetComponentInChildren<AttackManager>().GetComponent<PhotonView>().RPC("Dead", RpcTarget.All);
         }
+    }
+
+    [PunRPC]
+    public void GainExperience(int experience)
+    {
+        this.experience += experience;
+        if(experience >= newExperienceLevel)        //--------------------- Level Up
+        {
+            level++;
+            experience = 0;
+            newExperienceLevel *= 2;
+        }
+        foreach (var exp in GetComponentsInChildren<SimpleHealthBar>())
+            if (exp.type == "Exp")
+                exp.gameObject.GetComponent<Image>().fillAmount = (float)this.experience / this.newExperienceLevel;
     }
 
     [PunRPC]

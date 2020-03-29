@@ -126,8 +126,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 4110862708206267683}
-  viewIdField: 15
-  InstantiationId: 15
+  viewIdField: 20
+  InstantiationId: 20
   isRuntimeInstantiated: 0
 --- !u!114 &4110862708206267683
 MonoBehaviour:
@@ -308,8 +308,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 955689582}
-  viewIdField: 32
-  InstantiationId: 32
+  viewIdField: 30
+  InstantiationId: 30
   isRuntimeInstantiated: 0
 --- !u!1 &2044592811
 GameObject:
@@ -417,8 +417,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 8448146183033172643}
-  viewIdField: 3
-  InstantiationId: 3
+  viewIdField: 17
+  InstantiationId: 17
   isRuntimeInstantiated: 0
 --- !u!114 &8448146183033172643
 MonoBehaviour:
@@ -528,7 +528,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11471602, guid: 34017cf12560c804bb2f669f00c7af91, type: 3}
       propertyPath: type
-      value: Mana
+      value: Exp
       objectReference: {fileID: 0}
     - target: {fileID: 22486214, guid: 34017cf12560c804bb2f669f00c7af91, type: 3}
       propertyPath: m_LocalPosition.x
