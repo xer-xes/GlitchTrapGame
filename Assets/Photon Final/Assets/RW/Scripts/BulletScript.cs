@@ -51,6 +51,11 @@ public class BulletScript : MonoBehaviour
                     collision.gameObject.GetComponent<CreepsBehaviourScript>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, this.damage);
                     GetComponent<PhotonView>().RPC("DeleteBullet", RpcTarget.All);
                 }
+                else if(collision.gameObject.tag == "RightTower")
+                {
+                    collision.gameObject.GetComponentInChildren<TowerRangeFinder>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, this.damage);
+                    GetComponent<PhotonView>().RPC("DeleteBullet", RpcTarget.All);
+                }
             }
             else if (this.gameObject.tag == "RightArrow")
             {       //------------------------------------ FOR RIGHT  
@@ -62,6 +67,11 @@ public class BulletScript : MonoBehaviour
                 else if (collision.gameObject.tag == "Left")
                 {
                     collision.gameObject.GetComponent<CreepsBehaviourScript>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, this.damage);
+                    GetComponent<PhotonView>().RPC("DeleteBullet", RpcTarget.All);
+                }
+                else if (collision.gameObject.tag == "LeftTower")
+                {
+                    collision.gameObject.GetComponentInChildren<TowerRangeFinder>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, this.damage);
                     GetComponent<PhotonView>().RPC("DeleteBullet", RpcTarget.All);
                 }
             }

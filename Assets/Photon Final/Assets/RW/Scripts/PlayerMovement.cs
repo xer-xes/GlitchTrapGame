@@ -65,6 +65,11 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space))
                 GetComponentInChildren<AttackManager>().GetComponent<PhotonView>().RPC("Attack", RpcTarget.All);
+
+            if (isFacingForward)
+                GetComponentInChildren<TextMesh>().transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
+            else
+                GetComponentInChildren<TextMesh>().transform.localScale = new Vector3(-0.75f, 0.75f, 0.75f);
         }
     }
 

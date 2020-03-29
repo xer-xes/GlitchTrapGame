@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Photon.Pun;
+using UnityEngine.UI;
 
 public class TowerRangeFinder : MonoBehaviour
 {
@@ -11,12 +12,15 @@ public class TowerRangeFinder : MonoBehaviour
     public int damage;
     private GameObject towerBullet;
     private bool isPlayerInRange = false;
+    private int health = 500;
+    private int maxHealth = 500;
+    private bool dead = false;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if(this.gameObject.tag == "Range")
         {       //------------------- FOR LEFT
-            if(transform.parent.tag == "Left")
+            if(transform.parent.tag == "LeftTower")
             {
                 if (collision.gameObject.tag == "Right" ||
                     (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerMovement>().player == "Player2"))
@@ -35,7 +39,7 @@ public class TowerRangeFinder : MonoBehaviour
                         isShootingForward = true;
                 }
             }
-            else if (transform.parent.tag == "Right")
+            else if (transform.parent.tag == "RightTower")
             {       //------------------------- FOR RIGHT
                 if (collision.gameObject.tag == "Left" ||
                     (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerMovement>().player == "Player1"))
@@ -61,7 +65,7 @@ public class TowerRangeFinder : MonoBehaviour
     {
         if(this.gameObject.tag == "Range")
         {        //---------------------- FOR LEFT
-            if (transform.parent.tag == "Left")
+            if (transform.parent.tag == "LeftTower")
             {
                 if (collision.gameObject.tag == "Right" ||
                    (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerMovement>().player == "Player2"))
@@ -71,7 +75,7 @@ public class TowerRangeFinder : MonoBehaviour
                     isAttacking = false;
                 }
             }
-            else if (transform.parent.tag == "Right")
+            else if (transform.parent.tag == "RightTower")
             {       //--------------------------- FOR RIGHT
                 if (collision.gameObject.tag == "Left" ||
                    (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerMovement>().player == "Player1"))
@@ -110,6 +114,23 @@ public class TowerRangeFinder : MonoBehaviour
                 towerBullet.GetComponent<BulletScript>().isLeft = false;
                 towerBullet.GetComponent<BulletScript>().isForward = isShootingForward;
             }
+        }
+    }
+
+    [PunRPC]
+    public void TakeDamage(int damage)
+    {
+        this.health -= damage;
+        foreach (var health in GetComponentsInChildren<SimpleHealthBar>())
+        {
+            if (health.type == "Health")
+            {
+                health.gameObject.GetComponent<Image>().fillAmount = (float)this.health / this.maxHealth;
+            }
+        }
+        if (this.health <= 0)
+        {
+            dead = true;
         }
     }
 }

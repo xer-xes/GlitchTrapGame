@@ -11,7 +11,7 @@ public class CreepRangeFinder : MonoBehaviour
         {       //------------------------------ FOR LEFT
             if (transform.parent.tag == "Left")
             {
-                if (collision.gameObject.tag == "Right" ||
+                if (collision.gameObject.tag == "Right" || collision.gameObject.tag == "RightTower" ||
                      (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerMovement>().player == "Player2"))
                 {
                     if (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerMovement>().player == "Player2")
@@ -36,7 +36,7 @@ public class CreepRangeFinder : MonoBehaviour
             }           //-------------------------  FOR RIGHT
             else if(transform.parent.tag == "Right")
             {
-                if (collision.gameObject.tag == "Left" ||
+                if (collision.gameObject.tag == "Left" || collision.gameObject.tag == "LeftTower" ||
                     (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerMovement>().player == "Player1"))
                 {
                     if (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerMovement>().player == "Player1")
@@ -68,7 +68,7 @@ public class CreepRangeFinder : MonoBehaviour
         {       //----------------------------  FOR LEFT
             if (transform.parent.tag == "Left")
             {
-                if (collision.gameObject.tag == "Right" ||
+                if (collision.gameObject.tag == "Right" || collision.gameObject.tag == "RightTower" ||
                     (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerMovement>().player == "Player2"))
                 {
                     if (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerMovement>().player == "Player2")
@@ -78,7 +78,7 @@ public class CreepRangeFinder : MonoBehaviour
             }       //--------------------------- FOR RIGHT
             else if(transform.parent.tag == "Right")
             {
-                if (collision.gameObject.tag == "Left" ||
+                if (collision.gameObject.tag == "Left" || collision.gameObject.tag == "leftTower" ||
                    (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerMovement>().player == "Player1"))
                 {
                     if (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerMovement>().player == "Player1")

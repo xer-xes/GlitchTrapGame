@@ -28,7 +28,7 @@ public class AttackManager : MonoBehaviour
             if (transform.parent.GetComponent<PlayerMovement>().player == "Player2")
             {
                 if (isAttacking && hit && collision.gameObject != this.transform.parent.gameObject &&
-                    (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Left"))
+                    (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Left" || collision.gameObject.tag == "LeftTower")) 
                 {
                     hit = false;
                     if (collision.gameObject.GetComponent<PlayerMovement>() != null && collision.gameObject != this.transform.parent.gameObject)
@@ -40,12 +40,17 @@ public class AttackManager : MonoBehaviour
                         collision.gameObject.GetComponent<CreepsBehaviourScript>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All,
                                                                                                                   transform.parent.GetComponent<PlayerMovement>().damage);
                     }
+                    if (collision.gameObject.tag == "LeftTower")
+                    {
+                            collision.gameObject.GetComponentInChildren<TowerRangeFinder>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All,
+                                                                                                                  transform.parent.GetComponent<PlayerMovement>().damage);
+                    }
                 }
             }
             if (transform.parent.GetComponent<PlayerMovement>().player == "Player1")
             {       //--------------------------------- FOR PLAYER1
                 if (isAttacking && hit && collision.gameObject != this.transform.parent.gameObject &&
-                    (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Right"))
+                    (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Right" || collision.gameObject.tag == "RightTower")) 
                 {
                     hit = false;
                     if (collision.gameObject.GetComponent<PlayerMovement>() != null && collision.gameObject != this.transform.parent.gameObject)
@@ -55,6 +60,11 @@ public class AttackManager : MonoBehaviour
                     if (collision.gameObject.tag == "Right")
                     {
                         collision.gameObject.GetComponent<CreepsBehaviourScript>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All,
+                                                                                                                  transform.parent.GetComponent<PlayerMovement>().damage);
+                    }
+                    if (collision.gameObject.tag == "RightTower")
+                    {
+                            collision.gameObject.GetComponentInChildren<TowerRangeFinder>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All,
                                                                                                                   transform.parent.GetComponent<PlayerMovement>().damage);
                     }
                 }

@@ -12,6 +12,8 @@ TagManager:
   - LeftBullet
   - Range
   - RightArrow
+  - LeftTower
+  - RightTower
   layers:
   - Default
   - TransparentFX
