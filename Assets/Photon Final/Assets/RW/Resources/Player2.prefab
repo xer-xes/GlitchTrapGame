@@ -126,8 +126,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 4110862708206267683}
-  viewIdField: 20
-  InstantiationId: 20
+  viewIdField: 30
+  InstantiationId: 30
   isRuntimeInstantiated: 0
 --- !u!114 &4110862708206267683
 MonoBehaviour:
@@ -308,8 +308,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 955689582}
-  viewIdField: 30
-  InstantiationId: 30
+  viewIdField: 20
+  InstantiationId: 20
   isRuntimeInstantiated: 0
 --- !u!1 &2044592811
 GameObject:
@@ -526,9 +526,17 @@ PrefabInstance:
       propertyPath: type
       value: Health
       objectReference: {fileID: 0}
+    - target: {fileID: 11448154, guid: 34017cf12560c804bb2f669f00c7af91, type: 3}
+      propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 11471602, guid: 34017cf12560c804bb2f669f00c7af91, type: 3}
       propertyPath: type
       value: Exp
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471602, guid: 34017cf12560c804bb2f669f00c7af91, type: 3}
+      propertyPath: displayText
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 22486214, guid: 34017cf12560c804bb2f669f00c7af91, type: 3}
       propertyPath: m_LocalPosition.x

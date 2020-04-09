@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public bool dead = false;
     public int damage;
     private int experience = 0;
-    private int newExperienceLevel = 10;
+    private int newExperienceLevel = 50;
     private int level = 1;
 
     private void Start()
@@ -102,10 +102,10 @@ public class PlayerMovement : MonoBehaviour
     public void GainExperience(int experience)
     {
         this.experience += experience;
-        if(experience >= newExperienceLevel)        //--------------------- Level Up
+        if (this.experience >= newExperienceLevel)        //--------------------- Level Up
         {
             level++;
-            experience = 0;
+            this.experience -= newExperienceLevel;
             newExperienceLevel *= 2;
         }
         foreach (var exp in GetComponentsInChildren<SimpleHealthBar>())
@@ -120,5 +120,10 @@ public class PlayerMovement : MonoBehaviour
             GetComponentInChildren<TextMesh>().text = PhotonNetwork.LocalPlayer.NickName;
         else
             GetComponentInChildren<TextMesh>().text = PhotonNetwork.PlayerListOthers[0].NickName;
+    }
+    
+    public int GetHealth()
+    {
+        return health;
     }
 }

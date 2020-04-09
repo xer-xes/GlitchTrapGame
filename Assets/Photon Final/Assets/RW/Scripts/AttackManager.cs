@@ -33,16 +33,26 @@ public class AttackManager : MonoBehaviour
                     hit = false;
                     if (collision.gameObject.GetComponent<PlayerMovement>() != null && collision.gameObject != this.transform.parent.gameObject)
                     {
-                        collision.gameObject.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, transform.parent.GetComponent<PlayerMovement>().damage);
+                        if (collision.gameObject.GetComponent<PlayerMovement>().GetHealth() <= transform.parent.GetComponent<PlayerMovement>().damage)
+                            transform.parent.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("GainExperience", RpcTarget.All,
+                                                                                                         collision.gameObject.GetComponent<PlayerMovement>().GetHealth());
+                        collision.gameObject.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, 
+                                                                                                                  transform.parent.GetComponent<PlayerMovement>().damage);
                     }
                     if (collision.gameObject.tag == "Left")
                     {
+                        if (collision.gameObject.GetComponent<CreepsBehaviourScript>().GetHealth() <= transform.parent.GetComponent<PlayerMovement>().damage)
+                            transform.parent.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("GainExperience", RpcTarget.All,
+                                                                                                  collision.gameObject.GetComponent<CreepsBehaviourScript>().GetHealth());
                         collision.gameObject.GetComponent<CreepsBehaviourScript>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All,
                                                                                                                   transform.parent.GetComponent<PlayerMovement>().damage);
                     }
                     if (collision.gameObject.tag == "LeftTower")
                     {
-                            collision.gameObject.GetComponentInChildren<TowerRangeFinder>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All,
+                        if (collision.gameObject.GetComponent<TowerRangeFinder>().GetHealth() <= transform.parent.GetComponent<PlayerMovement>().damage)
+                            transform.parent.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("GainExperience", RpcTarget.All,
+                                                                                                       collision.gameObject.GetComponent<TowerRangeFinder>().GetHealth());
+                        collision.gameObject.GetComponentInChildren<TowerRangeFinder>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All,
                                                                                                                   transform.parent.GetComponent<PlayerMovement>().damage);
                     }
                 }
@@ -55,17 +65,27 @@ public class AttackManager : MonoBehaviour
                     hit = false;
                     if (collision.gameObject.GetComponent<PlayerMovement>() != null && collision.gameObject != this.transform.parent.gameObject)
                     {
-                        collision.gameObject.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, transform.parent.GetComponent<PlayerMovement>().damage);
+                        if (collision.gameObject.GetComponent<PlayerMovement>().GetHealth() <= transform.parent.GetComponent<PlayerMovement>().damage)
+                            transform.parent.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("GainExperience", RpcTarget.All,
+                                                                                                       collision.gameObject.GetComponent<PlayerMovement>().GetHealth());
+                        collision.gameObject.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All,
+                                                                                                                  transform.parent.GetComponent<PlayerMovement>().damage);
                     }
                     if (collision.gameObject.tag == "Right")
                     {
+                        if (collision.gameObject.GetComponent<CreepsBehaviourScript>().GetHealth() <= transform.parent.GetComponent<PlayerMovement>().damage)
+                            transform.parent.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("GainExperience", RpcTarget.All,
+                                                                                                collision.gameObject.GetComponent<CreepsBehaviourScript>().GetHealth());
                         collision.gameObject.GetComponent<CreepsBehaviourScript>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All,
                                                                                                                   transform.parent.GetComponent<PlayerMovement>().damage);
                     }
                     if (collision.gameObject.tag == "RightTower")
                     {
-                            collision.gameObject.GetComponentInChildren<TowerRangeFinder>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All,
-                                                                                                                  transform.parent.GetComponent<PlayerMovement>().damage);
+                        if (collision.gameObject.GetComponent<TowerRangeFinder>().GetHealth() <= transform.parent.GetComponent<PlayerMovement>().damage)
+                            transform.parent.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("GainExperience", RpcTarget.All,
+                                                                                                     collision.gameObject.GetComponent<TowerRangeFinder>().GetHealth());
+                        collision.gameObject.GetComponentInChildren<TowerRangeFinder>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All,
+                                                                                                                  transform.parent.GetComponent<PlayerMovement>().damage);  
                     }
                 }
             }

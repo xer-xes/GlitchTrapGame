@@ -133,4 +133,9 @@ public class TowerRangeFinder : MonoBehaviour
             dead = true;
         }
     }
+
+    public int GetHealth()
+    {
+        return health;
+    }
 }

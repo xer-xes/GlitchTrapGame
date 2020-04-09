@@ -16,7 +16,7 @@ public class CreepManager : MonoBehaviour
     private void Start()
     {
         if (PhotonNetwork.IsMasterClient)
-            InvokeRepeating("SpawnCreeps", 10, 30);
+            InvokeRepeating("SpawnCreeps", 30, 30);
     }
 
     private void SpawnCreeps()

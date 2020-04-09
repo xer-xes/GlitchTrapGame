@@ -88,4 +88,9 @@ public class CreepsBehaviourScript : MonoBehaviour
     {
         PhotonNetwork.Destroy(this.gameObject);
     }
+
+    public int GetHealth()
+    {
+        return health;
+    }
 }
