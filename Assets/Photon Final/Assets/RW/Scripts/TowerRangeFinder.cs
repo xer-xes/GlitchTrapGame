@@ -138,4 +138,9 @@ public class TowerRangeFinder : MonoBehaviour
     {
         return health;
     }
+
+    public int GetMaxHealth()
+    {
+        return maxHealth;
+    }
 }

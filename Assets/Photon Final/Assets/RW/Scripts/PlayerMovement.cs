@@ -101,29 +101,47 @@ public class PlayerMovement : MonoBehaviour
     [PunRPC]
     public void GainExperience(int experience)
     {
+        Debug.Log("Experience Gained" + experience);
         this.experience += experience;
         if (this.experience >= newExperienceLevel)        //--------------------- Level Up
         {
             level++;
             this.experience -= newExperienceLevel;
             newExperienceLevel *= 2;
+            foreach (TextMesh name in GetComponentsInChildren<TextMesh>())
+                if (name.gameObject.tag != "NameText")
+                    name.text = level.ToString();
         }
         foreach (var exp in GetComponentsInChildren<SimpleHealthBar>())
             if (exp.type == "Exp")
                 exp.gameObject.GetComponent<Image>().fillAmount = (float)this.experience / this.newExperienceLevel;
+        Debug.Log("Experience Level : " + level);
     }
 
     [PunRPC]
     private void SetPlayerName()
     {
         if (GetComponent<PhotonView>().IsMine)
-            GetComponentInChildren<TextMesh>().text = PhotonNetwork.LocalPlayer.NickName;
+        {
+            foreach (TextMesh name in GetComponentsInChildren<TextMesh>())
+                if (name.gameObject.tag == "NameText")
+                    name.text = PhotonNetwork.LocalPlayer.NickName;
+        }
         else
-            GetComponentInChildren<TextMesh>().text = PhotonNetwork.PlayerListOthers[0].NickName;
+        {
+            foreach (TextMesh name in GetComponentsInChildren<TextMesh>())
+                if (name.gameObject.tag == "NameText")
+                    name.text = PhotonNetwork.PlayerListOthers[0].NickName;
+        }
     }
     
     public int GetHealth()
     {
         return health;
+    }
+
+    public int GetMaxHealth()
+    {
+        return maxHealth;
     }
 }

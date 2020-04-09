@@ -35,7 +35,7 @@ public class AttackManager : MonoBehaviour
                     {
                         if (collision.gameObject.GetComponent<PlayerMovement>().GetHealth() <= transform.parent.GetComponent<PlayerMovement>().damage)
                             transform.parent.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("GainExperience", RpcTarget.All,
-                                                                                                         collision.gameObject.GetComponent<PlayerMovement>().GetHealth());
+                                                                                                         collision.gameObject.GetComponent<PlayerMovement>().GetMaxHealth());
                         collision.gameObject.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, 
                                                                                                                   transform.parent.GetComponent<PlayerMovement>().damage);
                     }
@@ -43,7 +43,7 @@ public class AttackManager : MonoBehaviour
                     {
                         if (collision.gameObject.GetComponent<CreepsBehaviourScript>().GetHealth() <= transform.parent.GetComponent<PlayerMovement>().damage)
                             transform.parent.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("GainExperience", RpcTarget.All,
-                                                                                                  collision.gameObject.GetComponent<CreepsBehaviourScript>().GetHealth());
+                                                                                                  collision.gameObject.GetComponent<CreepsBehaviourScript>().GetMaxHealth());
                         collision.gameObject.GetComponent<CreepsBehaviourScript>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All,
                                                                                                                   transform.parent.GetComponent<PlayerMovement>().damage);
                     }
@@ -51,7 +51,7 @@ public class AttackManager : MonoBehaviour
                     {
                         if (collision.gameObject.GetComponent<TowerRangeFinder>().GetHealth() <= transform.parent.GetComponent<PlayerMovement>().damage)
                             transform.parent.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("GainExperience", RpcTarget.All,
-                                                                                                       collision.gameObject.GetComponent<TowerRangeFinder>().GetHealth());
+                                                                                                       collision.gameObject.GetComponent<TowerRangeFinder>().GetMaxHealth());
                         collision.gameObject.GetComponentInChildren<TowerRangeFinder>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All,
                                                                                                                   transform.parent.GetComponent<PlayerMovement>().damage);
                     }
@@ -67,7 +67,7 @@ public class AttackManager : MonoBehaviour
                     {
                         if (collision.gameObject.GetComponent<PlayerMovement>().GetHealth() <= transform.parent.GetComponent<PlayerMovement>().damage)
                             transform.parent.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("GainExperience", RpcTarget.All,
-                                                                                                       collision.gameObject.GetComponent<PlayerMovement>().GetHealth());
+                                                                                                       collision.gameObject.GetComponent<PlayerMovement>().GetMaxHealth());
                         collision.gameObject.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All,
                                                                                                                   transform.parent.GetComponent<PlayerMovement>().damage);
                     }
@@ -75,7 +75,7 @@ public class AttackManager : MonoBehaviour
                     {
                         if (collision.gameObject.GetComponent<CreepsBehaviourScript>().GetHealth() <= transform.parent.GetComponent<PlayerMovement>().damage)
                             transform.parent.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("GainExperience", RpcTarget.All,
-                                                                                                collision.gameObject.GetComponent<CreepsBehaviourScript>().GetHealth());
+                                                                                                collision.gameObject.GetComponent<CreepsBehaviourScript>().GetMaxHealth());
                         collision.gameObject.GetComponent<CreepsBehaviourScript>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All,
                                                                                                                   transform.parent.GetComponent<PlayerMovement>().damage);
                     }
@@ -83,7 +83,7 @@ public class AttackManager : MonoBehaviour
                     {
                         if (collision.gameObject.GetComponent<TowerRangeFinder>().GetHealth() <= transform.parent.GetComponent<PlayerMovement>().damage)
                             transform.parent.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("GainExperience", RpcTarget.All,
-                                                                                                     collision.gameObject.GetComponent<TowerRangeFinder>().GetHealth());
+                                                                                                     collision.gameObject.GetComponent<TowerRangeFinder>().GetMaxHealth());
                         collision.gameObject.GetComponentInChildren<TowerRangeFinder>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All,
                                                                                                                   transform.parent.GetComponent<PlayerMovement>().damage);  
                     }
