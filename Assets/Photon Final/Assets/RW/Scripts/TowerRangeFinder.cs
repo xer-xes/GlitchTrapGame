@@ -12,8 +12,8 @@ public class TowerRangeFinder : MonoBehaviour
     public int damage;
     private GameObject towerBullet;
     private bool isPlayerInRange = false;
-    private int health = 500;
-    private int maxHealth = 500;
+    public int health = 500;
+    public int maxHealth = 500;
     private bool dead = false;
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -129,9 +129,15 @@ public class TowerRangeFinder : MonoBehaviour
             }
         }
         if (this.health <= 0)
-        {
             dead = true;
-        }
+        if (dead)
+            GetComponent<PhotonView>().RPC("RemoveTower", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RemoveTower()
+    {
+        PhotonNetwork.Destroy(transform.parent.gameObject);
     }
 
     public int GetHealth()

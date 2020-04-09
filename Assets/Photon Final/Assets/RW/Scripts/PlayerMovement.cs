@@ -5,14 +5,15 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 10f;
-   
+    [SerializeField] private float ExpBoostFactor = 1.2f;
+
     public string player;
     private bool isFacingForward = true;
     public int health = 100;
     public int maxHealth = 100;
     private float horizontal;
     public bool dead = false;
-    public int damage;
+    public int damage = 10;
     private int experience = 0;
     private int newExperienceLevel = 50;
     private int level = 1;
@@ -101,11 +102,13 @@ public class PlayerMovement : MonoBehaviour
     [PunRPC]
     public void GainExperience(int experience)
     {
-        Debug.Log("Experience Gained" + experience);
         this.experience += experience;
         if (this.experience >= newExperienceLevel)        //--------------------- Level Up
         {
             level++;
+            this.maxHealth = Mathf.CeilToInt(maxHealth * ExpBoostFactor);
+            this.health = maxHealth;
+            this.damage = Mathf.CeilToInt(damage * ExpBoostFactor);
             this.experience -= newExperienceLevel;
             newExperienceLevel *= 2;
             foreach (TextMesh name in GetComponentsInChildren<TextMesh>())
@@ -113,9 +116,12 @@ public class PlayerMovement : MonoBehaviour
                     name.text = level.ToString();
         }
         foreach (var exp in GetComponentsInChildren<SimpleHealthBar>())
+        {
             if (exp.type == "Exp")
                 exp.gameObject.GetComponent<Image>().fillAmount = (float)this.experience / this.newExperienceLevel;
-        Debug.Log("Experience Level : " + level);
+            else if(exp.type == "Health")
+                exp.gameObject.GetComponent<Image>().fillAmount = (float)this.health / this.maxHealth;
+        }
     }
 
     [PunRPC]

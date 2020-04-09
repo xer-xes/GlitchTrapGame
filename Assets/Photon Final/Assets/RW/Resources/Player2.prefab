@@ -491,6 +491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 10
+  ExpBoostFactor: 1.2
   player: Player2
   health: 100
   maxHealth: 100

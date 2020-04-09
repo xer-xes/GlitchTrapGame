@@ -49,9 +49,9 @@ public class AttackManager : MonoBehaviour
                     }
                     if (collision.gameObject.tag == "LeftTower")
                     {
-                        if (collision.gameObject.GetComponent<TowerRangeFinder>().GetHealth() <= transform.parent.GetComponent<PlayerMovement>().damage)
+                        if (collision.gameObject.GetComponentInChildren<TowerRangeFinder>().GetHealth() <= transform.parent.GetComponent<PlayerMovement>().damage)
                             transform.parent.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("GainExperience", RpcTarget.All,
-                                                                                                       collision.gameObject.GetComponent<TowerRangeFinder>().GetMaxHealth());
+                                                                                                       collision.gameObject.GetComponentInChildren<TowerRangeFinder>().GetMaxHealth());
                         collision.gameObject.GetComponentInChildren<TowerRangeFinder>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All,
                                                                                                                   transform.parent.GetComponent<PlayerMovement>().damage);
                     }
@@ -81,9 +81,9 @@ public class AttackManager : MonoBehaviour
                     }
                     if (collision.gameObject.tag == "RightTower")
                     {
-                        if (collision.gameObject.GetComponent<TowerRangeFinder>().GetHealth() <= transform.parent.GetComponent<PlayerMovement>().damage)
+                        if (collision.gameObject.GetComponentInChildren<TowerRangeFinder>().GetHealth() <= transform.parent.GetComponent<PlayerMovement>().damage)
                             transform.parent.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("GainExperience", RpcTarget.All,
-                                                                                                     collision.gameObject.GetComponent<TowerRangeFinder>().GetMaxHealth());
+                                                                                                     collision.gameObject.GetComponentInChildren<TowerRangeFinder>().GetMaxHealth());
                         collision.gameObject.GetComponentInChildren<TowerRangeFinder>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All,
                                                                                                                   transform.parent.GetComponent<PlayerMovement>().damage);  
                     }

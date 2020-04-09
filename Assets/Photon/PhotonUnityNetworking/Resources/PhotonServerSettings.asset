@@ -41,4 +41,5 @@ MonoBehaviour:
   - Respawn
   - SetPlayerName
   - GainExperience
+  - RemoveTower
   DisableAutoOpenWizard: 1
