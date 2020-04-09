@@ -23,6 +23,11 @@ public class CreepsBehaviourScript : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        PhotonNetwork.ConnectUsingSettings();
+    }
+
     private void Update()
     {
         GetComponent<Animator>().SetBool("Attack", isAttacking);

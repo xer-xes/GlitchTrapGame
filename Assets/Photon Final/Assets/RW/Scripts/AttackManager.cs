@@ -33,7 +33,8 @@ public class AttackManager : MonoBehaviour
                     hit = false;
                     if (collision.gameObject.GetComponent<PlayerMovement>() != null && collision.gameObject != this.transform.parent.gameObject)
                     {
-                        if (collision.gameObject.GetComponent<PlayerMovement>().GetHealth() <= transform.parent.GetComponent<PlayerMovement>().damage)
+                        if (collision.gameObject.GetComponent<PlayerMovement>().GetHealth() <= transform.parent.GetComponent<PlayerMovement>().damage && 
+                            !collision.gameObject.GetComponent<PlayerMovement>().dead)
                             transform.parent.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("GainExperience", RpcTarget.All,
                                                                                                          collision.gameObject.GetComponent<PlayerMovement>().GetMaxHealth());
                         collision.gameObject.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, 
@@ -41,7 +42,8 @@ public class AttackManager : MonoBehaviour
                     }
                     if (collision.gameObject.tag == "Left")
                     {
-                        if (collision.gameObject.GetComponent<CreepsBehaviourScript>().GetHealth() <= transform.parent.GetComponent<PlayerMovement>().damage)
+                        if (collision.gameObject.GetComponent<CreepsBehaviourScript>().GetHealth() <= transform.parent.GetComponent<PlayerMovement>().damage && 
+                            !collision.gameObject.GetComponent<CreepsBehaviourScript>().dead)
                             transform.parent.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("GainExperience", RpcTarget.All,
                                                                                                   collision.gameObject.GetComponent<CreepsBehaviourScript>().GetMaxHealth());
                         collision.gameObject.GetComponent<CreepsBehaviourScript>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All,
@@ -65,7 +67,8 @@ public class AttackManager : MonoBehaviour
                     hit = false;
                     if (collision.gameObject.GetComponent<PlayerMovement>() != null && collision.gameObject != this.transform.parent.gameObject)
                     {
-                        if (collision.gameObject.GetComponent<PlayerMovement>().GetHealth() <= transform.parent.GetComponent<PlayerMovement>().damage)
+                        if (collision.gameObject.GetComponent<PlayerMovement>().GetHealth() <= transform.parent.GetComponent<PlayerMovement>().damage &&
+                            !collision.gameObject.GetComponent<PlayerMovement>().dead)
                             transform.parent.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("GainExperience", RpcTarget.All,
                                                                                                        collision.gameObject.GetComponent<PlayerMovement>().GetMaxHealth());
                         collision.gameObject.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All,
@@ -73,7 +76,8 @@ public class AttackManager : MonoBehaviour
                     }
                     if (collision.gameObject.tag == "Right")
                     {
-                        if (collision.gameObject.GetComponent<CreepsBehaviourScript>().GetHealth() <= transform.parent.GetComponent<PlayerMovement>().damage)
+                        if (collision.gameObject.GetComponent<CreepsBehaviourScript>().GetHealth() <= transform.parent.GetComponent<PlayerMovement>().damage &&
+                            !collision.gameObject.GetComponent<CreepsBehaviourScript>().dead)
                             transform.parent.GetComponent<PlayerMovement>().GetComponent<PhotonView>().RPC("GainExperience", RpcTarget.All,
                                                                                                 collision.gameObject.GetComponent<CreepsBehaviourScript>().GetMaxHealth());
                         collision.gameObject.GetComponent<CreepsBehaviourScript>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All,
