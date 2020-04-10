@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1234212039}
   m_Layer: 0
   m_Name: Range
-  m_TagString: Untagged
+  m_TagString: Range
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,7 +48,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.0057297, y: 1.5094376}
+  m_Offset: {x: 0, y: 1.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -59,7 +59,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 33.73555, y: 14.456453}
+  m_Size: {x: 14, y: 14}
   m_EdgeRadius: 0
 --- !u!114 &1234212038
 MonoBehaviour:
@@ -74,6 +74,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFacingForward: 1
+  target: 
+  hitCollider: {fileID: 0}
 --- !u!114 &1234212040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,8 +95,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 1234212039}
-  viewIdField: 42
-  InstantiationId: 42
+  viewIdField: 38
+  InstantiationId: 38
   isRuntimeInstantiated: 0
 --- !u!114 &1234212039
 MonoBehaviour:
@@ -131,7 +133,7 @@ GameObject:
   - component: {fileID: 220000401}
   m_Layer: 0
   m_Name: MeleeLeftCreep
-  m_TagString: Untagged
+  m_TagString: Left
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -213,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97315600bace77c47a0dcb0c653f755b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: RangeLeft
+  type: MeleeLeft
   isAttacking: 0
   bulletSpawnPoint: {fileID: 0}
   damage: 2
@@ -307,8 +309,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 750219062135256792}
-  viewIdField: 40
-  InstantiationId: 40
+  viewIdField: 39
+  InstantiationId: 39
   isRuntimeInstantiated: 0
 --- !u!114 &750219062135256792
 MonoBehaviour:

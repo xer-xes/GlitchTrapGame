@@ -17,10 +17,8 @@ public class CreepsBehaviourScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerMovement>() != null)
-        {
+        if (collision.gameObject.GetComponent<PlayerMovement>() != null || collision.gameObject.GetComponent<CreepsBehaviourScript>() != null) 
             Physics2D.IgnoreCollision(this.gameObject.GetComponent<BoxCollider2D>(), collision.gameObject.GetComponent<BoxCollider2D>());
-        }
     }
 
     private void Start()
@@ -61,6 +59,33 @@ public class CreepsBehaviourScript : MonoBehaviour
                 RangeBullet.GetComponent<BulletScript>().damage = this.damage;
                 RangeBullet.GetComponent<BulletScript>().isLeft = false;
             }
+        }
+    }
+
+    public void AttackDamage()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            if (gameObject.tag == "Left")
+            {
+                if (GetComponentInChildren<CreepRangeFinder>().target == "Player")
+                    foreach (PlayerMovement player in FindObjectsOfType<PlayerMovement>())
+                        if (player.player == "Player2")
+                            player.GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, this.damage);
+            }
+            if (gameObject.tag == "Right")
+            {
+                if (GetComponentInChildren<CreepRangeFinder>().target == "Player")
+                    foreach (PlayerMovement player in FindObjectsOfType<PlayerMovement>())
+                        if (player.player == "Player1")
+                            player.GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, this.damage);
+            }
+            if (GetComponentInChildren<CreepRangeFinder>().target == "Creep")
+                GetComponentInChildren<CreepRangeFinder>().hitCollider.GetComponent<CreepsBehaviourScript>().
+                    GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, this.damage);
+            if (GetComponentInChildren<CreepRangeFinder>().target == "Tower")
+                GetComponentInChildren<CreepRangeFinder>().hitCollider.GetComponentInChildren<TowerRangeFinder>().
+                    GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, this.damage);
         }
     }
 

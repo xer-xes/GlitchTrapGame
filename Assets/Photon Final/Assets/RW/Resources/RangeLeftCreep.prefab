@@ -74,6 +74,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFacingForward: 1
+  target: 
+  hitCollider: {fileID: 0}
 --- !u!114 &4081941947023860592
 MonoBehaviour:
   m_ObjectHideFlags: 0

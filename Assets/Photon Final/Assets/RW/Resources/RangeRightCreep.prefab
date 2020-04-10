@@ -74,6 +74,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFacingForward: 1
+  target: 
+  hitCollider: {fileID: 0}
 --- !u!114 &1830401554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,8 +95,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 1830401553}
-  viewIdField: 2
-  InstantiationId: 2
+  viewIdField: 1
+  InstantiationId: 1
   isRuntimeInstantiated: 0
 --- !u!114 &1830401553
 MonoBehaviour:
@@ -213,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97315600bace77c47a0dcb0c653f755b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 
+  type: RangeRight
   isAttacking: 0
   bulletSpawnPoint: {fileID: 1830401552}
   damage: 3
@@ -322,8 +324,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 1948546847}
-  viewIdField: 14
-  InstantiationId: 14
+  viewIdField: 13
+  InstantiationId: 13
   isRuntimeInstantiated: 0
 --- !u!114 &1948546851
 MonoBehaviour:

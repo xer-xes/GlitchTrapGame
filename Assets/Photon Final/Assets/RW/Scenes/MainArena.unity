@@ -16812,7 +16812,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 973604032}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -40.499992, y: -3.53, z: 0}
+  m_LocalPosition: {x: -80, y: -3.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 787157847}
@@ -25773,7 +25773,7 @@ MonoBehaviour:
   leftRangeSpawn: {fileID: 533674263}
   meleeRightCreep: {fileID: 0}
   rangeRightCreep: {fileID: 1948546846}
-  meleeLeftCreep: {fileID: 0}
+  meleeLeftCreep: {fileID: 7116681615910245149}
   rangeLeftCreep: {fileID: 1115285801}
   towerLeft1Prefab: {fileID: 2058111190}
   towerRight1Prefab: {fileID: 191424650}
@@ -32416,19 +32416,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1830401554, guid: af087e3add40cb8439faef91beab83be, type: 3}
       propertyPath: viewIdField
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1830401554, guid: af087e3add40cb8439faef91beab83be, type: 3}
       propertyPath: InstantiationId
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1948546848, guid: af087e3add40cb8439faef91beab83be, type: 3}
       propertyPath: viewIdField
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1948546848, guid: af087e3add40cb8439faef91beab83be, type: 3}
       propertyPath: InstantiationId
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 2527034911772918815, guid: af087e3add40cb8439faef91beab83be,
         type: 3}
@@ -45441,6 +45441,14 @@ PrefabInstance:
       propertyPath: bulletSpawnPoint
       value: 
       objectReference: {fileID: 76117311}
+    - target: {fileID: 1234212040, guid: 3bb04b299a605ef459916cb14aeb9c53, type: 3}
+      propertyPath: viewIdField
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1234212040, guid: 3bb04b299a605ef459916cb14aeb9c53, type: 3}
+      propertyPath: InstantiationId
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 7116681615596188173, guid: 3bb04b299a605ef459916cb14aeb9c53,
         type: 3}
       propertyPath: m_Camera
@@ -45511,8 +45519,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8246117066581879787, guid: 3bb04b299a605ef459916cb14aeb9c53,
+        type: 3}
+      propertyPath: viewIdField
+      value: 41
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246117066581879787, guid: 3bb04b299a605ef459916cb14aeb9c53,
+        type: 3}
+      propertyPath: InstantiationId
+      value: 41
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bb04b299a605ef459916cb14aeb9c53, type: 3}
+--- !u!1 &7116681615910245149 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7116681615694029713, guid: 3bb04b299a605ef459916cb14aeb9c53,
+    type: 3}
+  m_PrefabInstance: {fileID: 7116681615910245148}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7192210235531319645
 PrefabInstance:
   m_ObjectHideFlags: 0
