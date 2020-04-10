@@ -18330,7 +18330,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105691499}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 50.03, y: -3.53, z: 0}
+  m_LocalPosition: {x: 80, y: -3.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 787157847}
@@ -24688,6 +24688,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1650011074}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1650584315 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8038397264112020063, guid: c3a0de3cbeb8c534eaa6dfee0f89ae1b,
+    type: 3}
+  m_PrefabInstance: {fileID: 8038397262465826980}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1653678676
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25771,7 +25777,7 @@ MonoBehaviour:
   rightRangeSpawn: {fileID: 1128999210}
   leftMeleeSpawn: {fileID: 973604032}
   leftRangeSpawn: {fileID: 533674263}
-  meleeRightCreep: {fileID: 0}
+  meleeRightCreep: {fileID: 1650584315}
   rangeRightCreep: {fileID: 1948546846}
   meleeLeftCreep: {fileID: 7116681615910245149}
   rangeLeftCreep: {fileID: 1115285801}
@@ -45443,11 +45449,11 @@ PrefabInstance:
       objectReference: {fileID: 76117311}
     - target: {fileID: 1234212040, guid: 3bb04b299a605ef459916cb14aeb9c53, type: 3}
       propertyPath: viewIdField
-      value: 40
+      value: 44
       objectReference: {fileID: 0}
     - target: {fileID: 1234212040, guid: 3bb04b299a605ef459916cb14aeb9c53, type: 3}
       propertyPath: InstantiationId
-      value: 40
+      value: 44
       objectReference: {fileID: 0}
     - target: {fileID: 7116681615596188173, guid: 3bb04b299a605ef459916cb14aeb9c53,
         type: 3}
@@ -45701,6 +45707,89 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
+--- !u!1001 &8038397262465826980
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1650584318, guid: c3a0de3cbeb8c534eaa6dfee0f89ae1b, type: 3}
+      propertyPath: bulletSpawnPoint
+      value: 
+      objectReference: {fileID: 76117311}
+    - target: {fileID: 8038397262506998452, guid: c3a0de3cbeb8c534eaa6dfee0f89ae1b,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 480807945}
+    - target: {fileID: 8038397264112020057, guid: c3a0de3cbeb8c534eaa6dfee0f89ae1b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8038397264112020057, guid: c3a0de3cbeb8c534eaa6dfee0f89ae1b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8038397264112020057, guid: c3a0de3cbeb8c534eaa6dfee0f89ae1b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8038397264112020057, guid: c3a0de3cbeb8c534eaa6dfee0f89ae1b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8038397264112020057, guid: c3a0de3cbeb8c534eaa6dfee0f89ae1b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8038397264112020057, guid: c3a0de3cbeb8c534eaa6dfee0f89ae1b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8038397264112020057, guid: c3a0de3cbeb8c534eaa6dfee0f89ae1b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8038397264112020057, guid: c3a0de3cbeb8c534eaa6dfee0f89ae1b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8038397264112020057, guid: c3a0de3cbeb8c534eaa6dfee0f89ae1b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8038397264112020057, guid: c3a0de3cbeb8c534eaa6dfee0f89ae1b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8038397264112020057, guid: c3a0de3cbeb8c534eaa6dfee0f89ae1b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8038397264112020063, guid: c3a0de3cbeb8c534eaa6dfee0f89ae1b,
+        type: 3}
+      propertyPath: m_Name
+      value: MeleeRightCreep
+      objectReference: {fileID: 0}
+    - target: {fileID: 8038397264112020063, guid: c3a0de3cbeb8c534eaa6dfee0f89ae1b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c3a0de3cbeb8c534eaa6dfee0f89ae1b, type: 3}
 --- !u!1001 &8315429705684772892
 PrefabInstance:
   m_ObjectHideFlags: 0
