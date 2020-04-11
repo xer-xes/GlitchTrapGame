@@ -60,11 +60,29 @@ public class CreepRangeFinder : MonoBehaviour
                     (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerMovement>().player == "Player1"))
                 {
                     if (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerMovement>().player == "Player1")
+                    {
                         isPlayerInRange = true;
+                        if (this.transform.parent.gameObject.GetComponent<CreepsBehaviourScript>().type == "MeleeRight")
+                        {
+                            target = "Player";
+                            hitCollider = collision;
+                        }
+                    }
+
+                    if (!transform.parent.GetComponent<CreepsBehaviourScript>().isAttacking)
+                    {
+                        if (this.transform.parent.gameObject.GetComponent<CreepsBehaviourScript>().type == "MeleeRight" && collision.gameObject.tag == "Left")
+                            target = "Creep";
+                        if (this.transform.parent.gameObject.GetComponent<CreepsBehaviourScript>().type == "MeleeRight" && collision.gameObject.tag == "LeftTower")
+                            target = "Tower";
+                        hitCollider = collision;
+                    }
 
                     transform.parent.GetComponent<CreepsBehaviourScript>().isAttacking = true;
 
                     if (isPlayerInRange && collision.gameObject.tag == "Left")
+                        return;
+                    if (this.transform.parent.gameObject.GetComponent<CreepsBehaviourScript>().type == "MeleeRight" && collision.gameObject.tag == "LeftTower")
                         return;
 
                     if (isFacingForward && transform.parent.position.x < collision.gameObject.transform.position.x)

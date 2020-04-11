@@ -24,7 +24,7 @@ public class CreepManager : MonoBehaviour
         if (PhotonNetwork.IsMasterClient)
         {
             SpawnTowers();
-            InvokeRepeating("SpawnCreeps", 30, 30);
+            InvokeRepeating("SpawnCreeps", 10, 30);
         }
     }
 
@@ -32,6 +32,7 @@ public class CreepManager : MonoBehaviour
     {
         GameObject meleeLeft = PhotonNetwork.Instantiate("MeleeLeftCreep", leftMeleeSpawn.transform.position, Quaternion.identity, 0);
         GameObject rangeLeft = PhotonNetwork.Instantiate("RangeLeftCreep", leftRangeSpawn.transform.position, Quaternion.identity, 0);
+        GameObject meleeRight = PhotonNetwork.Instantiate("MeleeRightCreep", rightMeleeSpawn.transform.position, Quaternion.identity, 0);
         GameObject rangeRight = PhotonNetwork.Instantiate("RangeRightCreep", rightRangeSpawn.transform.position, Quaternion.identity, 0);
     }
 

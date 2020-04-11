@@ -45714,10 +45714,28 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 292327157, guid: c3a0de3cbeb8c534eaa6dfee0f89ae1b, type: 3}
+      propertyPath: viewIdField
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 292327157, guid: c3a0de3cbeb8c534eaa6dfee0f89ae1b, type: 3}
+      propertyPath: InstantiationId
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 1650584318, guid: c3a0de3cbeb8c534eaa6dfee0f89ae1b, type: 3}
       propertyPath: bulletSpawnPoint
       value: 
       objectReference: {fileID: 76117311}
+    - target: {fileID: 6801561217280407957, guid: c3a0de3cbeb8c534eaa6dfee0f89ae1b,
+        type: 3}
+      propertyPath: viewIdField
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 6801561217280407957, guid: c3a0de3cbeb8c534eaa6dfee0f89ae1b,
+        type: 3}
+      propertyPath: InstantiationId
+      value: 42
+      objectReference: {fileID: 0}
     - target: {fileID: 8038397262506998452, guid: c3a0de3cbeb8c534eaa6dfee0f89ae1b,
         type: 3}
       propertyPath: m_Camera
