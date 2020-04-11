@@ -8,10 +8,11 @@ public class MapManager : MonoBehaviour
 
     private void Start()
     {
+        int rand;
         foreach (SpriteRenderer skeleton in skeletons.GetComponentsInChildren<SpriteRenderer>())
         {
-            byte rand = (byte)(Random.Range(50, 200) / 255);
-            skeleton.color = new Color32(rand, rand, rand, 1);
+            rand = Random.Range(100, 200);
+            skeleton.color = new Color32((byte)rand, (byte)rand, (byte)rand, 255);
         }
     }
 }

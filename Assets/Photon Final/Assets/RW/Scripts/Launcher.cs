@@ -82,7 +82,8 @@ namespace Photon.Pun.Demo.PunBasics
             }
             else
             {
-                playerStatus.text = "Minimum 2 Players required to Load Arena!";
+                //playerStatus.text = "Minimum 2 Players required to Load Arena!";
+                PhotonNetwork.LoadLevel("MainArena");                                   //----------------  Temp : TODO : change for single player testing
             }
         }
 
