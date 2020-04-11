@@ -39,7 +39,7 @@ public class CreepsBehaviourScript : MonoBehaviour
     }
 
     public void LaunchBullet()
-    {
+    {                                               //------------------------  Called through ranged creep attack animation event
         if (PhotonNetwork.IsMasterClient)
         {       //-------------------------- FOR LEFT BULLET
             if (isLeft)
@@ -63,7 +63,7 @@ public class CreepsBehaviourScript : MonoBehaviour
     }
 
     public void AttackDamage()
-    {
+    {                                                   //-------------------- Called through melee creep attack animation event
         if (PhotonNetwork.IsMasterClient)
         {
             if (gameObject.tag == "Left")

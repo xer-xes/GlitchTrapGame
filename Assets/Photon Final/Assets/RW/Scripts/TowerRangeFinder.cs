@@ -108,7 +108,7 @@ public class TowerRangeFinder : MonoBehaviour
                 towerBullet.GetComponent<BulletScript>().isForward = isShootingForward;
             }
             else
-            {
+            {       //------------------------ FOR RIGHT
                 towerBullet = PhotonNetwork.Instantiate("TowerRightBullet", transform.position, transform.rotation, 0);
                 towerBullet.GetComponent<BulletScript>().damage = this.damage;
                 towerBullet.GetComponent<BulletScript>().isLeft = false;

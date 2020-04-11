@@ -13,6 +13,6 @@ public class CameraMovement : MonoBehaviour
     private void Update()
     {
         if (GetComponent<PhotonView>().IsMine)
-            camera.transform.position = new Vector3(transform.position.x, 0, -10);
+            camera.transform.position = new Vector3(transform.position.x, 5, -10);
     }
 }
