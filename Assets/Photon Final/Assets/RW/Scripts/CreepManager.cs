@@ -21,6 +21,12 @@ public class CreepManager : MonoBehaviour
     [SerializeField] private GameObject towerLeft2Spawn;
     [SerializeField] private GameObject towerRight2Spawn;
 
+    [SerializeField] private GameObject castleLeftSpawn;
+    [SerializeField] private GameObject castleRightSpawn;
+
+    [SerializeField] private GameObject castleLeftPrefab;
+    [SerializeField] private GameObject castleRightPrefab;
+
     private void Start()
     {
         if (PhotonNetwork.IsMasterClient)
@@ -52,5 +58,7 @@ public class CreepManager : MonoBehaviour
         towerRight2.GetComponentInChildren<TowerRangeFinder>().damage = 30;
         towerRight2.GetComponentInChildren<TowerRangeFinder>().health = 1000;
         towerRight2.GetComponentInChildren<TowerRangeFinder>().maxHealth = 1000;
+
+        GameObject castleLeft = PhotonNetwork.Instantiate("CastleLeft", castleLeftSpawn.transform.position, Quaternion.identity, 0);
     }
 }

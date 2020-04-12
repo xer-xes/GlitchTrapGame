@@ -104,20 +104,23 @@ public class TowerRangeFinder : MonoBehaviour
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            time = 0;
-            if(isLeft)
-            {       //------------------------ FOR LEFT
-                towerBullet = PhotonNetwork.Instantiate("TowerLeftBullet", transform.position, transform.rotation, 0);
-                towerBullet.GetComponent<BulletScript>().damage = this.damage;
-                towerBullet.GetComponent<BulletScript>().isLeft = true;
-                towerBullet.GetComponent<BulletScript>().isForward = isShootingForward;
-            }
-            else
-            {       //------------------------ FOR RIGHT
-                towerBullet = PhotonNetwork.Instantiate("TowerRightBullet", transform.position, transform.rotation, 0);
-                towerBullet.GetComponent<BulletScript>().damage = this.damage;
-                towerBullet.GetComponent<BulletScript>().isLeft = false;
-                towerBullet.GetComponent<BulletScript>().isForward = isShootingForward;
+            if (type != "Castle")
+            {
+                time = 0;
+                if (isLeft)
+                {       //------------------------ FOR LEFT
+                    towerBullet = PhotonNetwork.Instantiate("TowerLeftBullet", transform.position, transform.rotation, 0);
+                    towerBullet.GetComponent<BulletScript>().damage = this.damage;
+                    towerBullet.GetComponent<BulletScript>().isLeft = true;
+                    towerBullet.GetComponent<BulletScript>().isForward = isShootingForward;
+                }
+                else
+                {       //------------------------ FOR RIGHT
+                    towerBullet = PhotonNetwork.Instantiate("TowerRightBullet", transform.position, transform.rotation, 0);
+                    towerBullet.GetComponent<BulletScript>().damage = this.damage;
+                    towerBullet.GetComponent<BulletScript>().isLeft = false;
+                    towerBullet.GetComponent<BulletScript>().isForward = isShootingForward;
+                }
             }
         }
     }
