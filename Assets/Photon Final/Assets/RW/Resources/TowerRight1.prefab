@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 545623913}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.1, y: 1.53, z: 0}
+  m_LocalPosition: {x: -5.1, y: 1.07, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 5255160151819416654}
@@ -137,13 +137,35 @@ PrefabInstance:
       propertyPath: isLeft
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1196262058, guid: ad1a3bbeafab95047a5e1ad90ba54584, type: 3}
+      propertyPath: damaged
+      value: 
+      objectReference: {fileID: 21300000, guid: 3a15b193c49070648b985ef76720d44b,
+        type: 3}
+    - target: {fileID: 1196262058, guid: ad1a3bbeafab95047a5e1ad90ba54584, type: 3}
+      propertyPath: wrecked
+      value: 
+      objectReference: {fileID: 21300000, guid: bfe0cd54c98f4424480559ff3dff05bf,
+        type: 3}
+    - target: {fileID: 1196262058, guid: ad1a3bbeafab95047a5e1ad90ba54584, type: 3}
+      propertyPath: flag
+      value: 
+      objectReference: {fileID: 5255160151513572289}
+    - target: {fileID: 1196262058, guid: ad1a3bbeafab95047a5e1ad90ba54584, type: 3}
+      propertyPath: towerSprite
+      value: 
+      objectReference: {fileID: 545623915}
+    - target: {fileID: 1196262058, guid: ad1a3bbeafab95047a5e1ad90ba54584, type: 3}
+      propertyPath: type
+      value: Tower
+      objectReference: {fileID: 0}
     - target: {fileID: 1714781637, guid: ad1a3bbeafab95047a5e1ad90ba54584, type: 3}
       propertyPath: viewIdField
-      value: 36
+      value: 37
       objectReference: {fileID: 0}
     - target: {fileID: 1714781637, guid: ad1a3bbeafab95047a5e1ad90ba54584, type: 3}
       propertyPath: InstantiationId
-      value: 36
+      value: 37
       objectReference: {fileID: 0}
     - target: {fileID: 1258471292887697441, guid: ad1a3bbeafab95047a5e1ad90ba54584,
         type: 3}
@@ -331,6 +353,12 @@ GameObject:
 --- !u!4 &5255160151819416654 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6949822028264311295, guid: ad1a3bbeafab95047a5e1ad90ba54584,
+    type: 3}
+  m_PrefabInstance: {fileID: 2926405175995989425}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5255160151513572289 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6949822028498853488, guid: ad1a3bbeafab95047a5e1ad90ba54584,
     type: 3}
   m_PrefabInstance: {fileID: 2926405175995989425}
   m_PrefabAsset: {fileID: 0}

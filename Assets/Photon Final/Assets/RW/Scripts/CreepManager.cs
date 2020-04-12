@@ -18,6 +18,8 @@ public class CreepManager : MonoBehaviour
 
     [SerializeField] private GameObject towerLeft1Spawn;
     [SerializeField] private GameObject towerRight1Spawn;
+    [SerializeField] private GameObject towerLeft2Spawn;
+    [SerializeField] private GameObject towerRight2Spawn;
 
     private void Start()
     {
@@ -40,5 +42,15 @@ public class CreepManager : MonoBehaviour
     {
         GameObject towerLeft1 = PhotonNetwork.Instantiate("TowerLeft1", towerLeft1Spawn.transform.position, Quaternion.identity, 0);
         GameObject towerRight1 = PhotonNetwork.Instantiate("TowerRight1", towerRight1Spawn.transform.position, Quaternion.identity, 0);
+
+        GameObject towerLeft2 = PhotonNetwork.Instantiate("TowerLeft1", towerLeft2Spawn.transform.position, Quaternion.identity, 0);
+        towerLeft2.GetComponentInChildren<TowerRangeFinder>().damage = 30;
+        towerLeft2.GetComponentInChildren<TowerRangeFinder>().health = 1000;
+        towerLeft2.GetComponentInChildren<TowerRangeFinder>().maxHealth = 1000;
+
+        GameObject towerRight2 = PhotonNetwork.Instantiate("TowerRight1", towerRight2Spawn.transform.position, Quaternion.identity, 0);
+        towerRight2.GetComponentInChildren<TowerRangeFinder>().damage = 30;
+        towerRight2.GetComponentInChildren<TowerRangeFinder>().health = 1000;
+        towerRight2.GetComponentInChildren<TowerRangeFinder>().maxHealth = 1000;
     }
 }

@@ -15,6 +15,11 @@ public class TowerRangeFinder : MonoBehaviour
     public int health = 500;
     public int maxHealth = 500;
     private bool dead = false;
+    public Sprite damaged;
+    public Sprite wrecked;
+    public GameObject flag;
+    public SpriteRenderer towerSprite;
+    public string type;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -128,6 +133,18 @@ public class TowerRangeFinder : MonoBehaviour
                 health.gameObject.GetComponent<Image>().fillAmount = (float)this.health / this.maxHealth;
             }
         }
+
+        if((float)health / maxHealth <= 0.33f)
+        {
+            flag.SetActive(false);
+            towerSprite.sprite = wrecked;
+        }
+        else if((float)health/maxHealth <= 0.63f)
+        {
+            flag.SetActive(false);
+            towerSprite.sprite = damaged;
+        }
+
         if (this.health <= 0)
             dead = true;
         if (dead)
