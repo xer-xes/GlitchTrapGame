@@ -32,7 +32,7 @@ public class CreepManager : MonoBehaviour
         if (PhotonNetwork.IsMasterClient)
         {
             SpawnTowers();
-            InvokeRepeating("SpawnCreeps", 10, 30);
+            InvokeRepeating("SpawnCreeps", 10, 30);             //---------------------- TODO : Need to change it to 30,30
         }
     }
 
@@ -60,5 +60,6 @@ public class CreepManager : MonoBehaviour
         towerRight2.GetComponentInChildren<TowerRangeFinder>().maxHealth = 1000;
 
         GameObject castleLeft = PhotonNetwork.Instantiate("CastleLeft", castleLeftSpawn.transform.position, Quaternion.identity, 0);
+        GameObject castleRight = PhotonNetwork.Instantiate("CastleRight", castleRightSpawn.transform.position, Quaternion.identity, 0);
     }
 }
